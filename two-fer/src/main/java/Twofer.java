@@ -1,8 +1,9 @@
 class Twofer {
+    private static final String message = "One for %s, one for me.";
     String twofer(String name) {
       if (name == null){
-        return "One for you, one for me.";
+        name = "you";
       }
-      return String.format("One for %s, one for me.", name);
+      return String.format(message, name);
     }
 }
