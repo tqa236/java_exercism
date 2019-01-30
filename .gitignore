@@ -39,3 +39,6 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 **/.exercism/*
+**/.settings/
+**/.classpath
+**/.project
