@@ -1,43 +1,44 @@
 class SpaceAge {
+    private double seconds;
 
     SpaceAge(double seconds) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.seconds = seconds;
     }
 
     double getSeconds() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.seconds;
     }
 
     double onEarth() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.seconds/31557600;
     }
 
     double onMercury() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.seconds/(31557600 * 0.2408467);
     }
 
     double onVenus() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.seconds/(31557600 * 0.61519726);
     }
 
     double onMars() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.seconds/(31557600 * 1.8808158);
     }
 
     double onJupiter() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.seconds/(31557600 * 11.862615);
     }
 
     double onSaturn() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.seconds/(31557600 * 29.447498);
     }
 
     double onUranus() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.seconds/(31557600 * 84.016846);
     }
 
     double onNeptune() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.seconds/(31557600 * 164.79132);
     }
 
 }

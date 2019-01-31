@@ -5,31 +5,31 @@ import static org.junit.Assert.assertEquals;
 
 public class ReverseStringTest {
 
-    @Test
+    // @Test
     public void testAnEmptyString() {
         assertEquals("", new ReverseString().reverse(""));
     }
 
     @Ignore("Remove to run test")
-    @Test
+    // @Test
     public void testAWord() {
         assertEquals("tobor", new ReverseString().reverse("robot"));
     }
 
     @Ignore("Remove to run test")
-    @Test
+    // @Test
     public void testACapitalizedWord() {
         assertEquals("nemaR", new ReverseString().reverse("Ramen"));
     }
 
     @Ignore("Remove to run test")
-    @Test
+    // @Test
     public void testASentenceWithPunctuation() {
         assertEquals("!yrgnuh m'I", new ReverseString().reverse("I'm hungry!"));
     }
 
     @Ignore("Remove to run test")
-    @Test
+    // @Test
     public void testAPalindrome() {
         assertEquals("racecar", new ReverseString().reverse("racecar"));
     }
