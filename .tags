@@ -1,2 +1,0 @@
-PangramChecker	/home/tqa/exercism/java/pangram/src/main/java/PangramChecker.java	/^public class PangramChecker {$/;"	class	line:1
-isPangram	/home/tqa/exercism/java/pangram/src/main/java/PangramChecker.java	/^    public boolean isPangram(String input) {$/;"	method	line:3	class:PangramChecker	signature:(String input)
