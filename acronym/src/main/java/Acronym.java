@@ -1,11 +1,26 @@
 class Acronym {
 
+    private String phrase;
+
     Acronym(String phrase) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.phrase = phrase;
     }
 
-    String get() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    String getAcronym() {
+        String acronym = "";
+        Boolean isAcronym = true;
+        for (char c : phrase.toCharArray()) {
+            if (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z'))){
+                if (isAcronym){
+                    acronym = acronym + Character.toUpperCase(c);
+                    isAcronym = false;
+                }
+            }
+            else if (c != '\''){
+                isAcronym = true;
+            }
+        }
+        return acronym;
     }
 
 }
