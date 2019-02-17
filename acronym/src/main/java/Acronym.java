@@ -1,26 +1,24 @@
 class Acronym {
 
-    private String phrase;
+  private String phrase;
 
-    Acronym(String phrase) {
-        this.phrase = phrase;
-    }
+  Acronym(String phrase) {
+    this.phrase = phrase;
+  }
 
-    String getAcronym() {
-        String acronym = "";
-        Boolean isAcronym = true;
-        for (char c : phrase.toCharArray()) {
-            if (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z'))){
-                if (isAcronym){
-                    acronym = acronym + Character.toUpperCase(c);
-                    isAcronym = false;
-                }
-            }
-            else if (c != '\''){
-                isAcronym = true;
-            }
+  String getAcronym() {
+    String acronym = "";
+    Boolean isAcronym = true;
+    for (char c : phrase.toCharArray()) {
+      if (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z'))) {
+        if (isAcronym) {
+          acronym = acronym + Character.toUpperCase(c);
+          isAcronym = false;
         }
-        return acronym;
+      } else if (c != '\'') {
+        isAcronym = true;
+      }
     }
-
+    return acronym;
+  }
 }

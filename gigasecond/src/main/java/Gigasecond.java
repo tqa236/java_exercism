@@ -16,5 +16,4 @@ class Gigasecond {
   LocalDateTime getDateTime() {
     return birthDateTime.plusSeconds(GIGASECOND);
   }
-
 }
