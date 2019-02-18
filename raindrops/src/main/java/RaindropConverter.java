@@ -11,7 +11,7 @@ class RaindropConverter {
     if (number % 7 == 0) {
       s = s + "Plong";
     }
-    if (s == "") {
+    if (s.equals("")) {
       return String.valueOf(number);
     }
     return s;

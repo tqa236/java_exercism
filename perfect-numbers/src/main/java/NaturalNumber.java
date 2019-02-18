@@ -11,7 +11,7 @@ class NaturalNumber {
     this.number = number;
   }
 
-  Classification getClassification() {
+  public Classification getClassification() {
     IntStream stream = IntStream.rangeClosed(1, number / 2);
     int aliquotSum = stream.filter(n -> number % n == 0).sum();
     return (aliquotSum == number)

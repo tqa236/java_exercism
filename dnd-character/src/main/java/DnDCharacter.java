@@ -10,7 +10,7 @@ class DnDCharacter {
   private int charisma = ability();
   private int hitpoints = 10 + modifier(constitution);
 
-  int ability() {
+  public int ability() {
     Random rand = new Random();
     int[] random_ability = new int[4];
     for (int i = 0; i < 4; i = i + 1) {
@@ -19,35 +19,35 @@ class DnDCharacter {
     return IntStream.of(random_ability).sum() - IntStream.of(random_ability).min().orElse(0);
   }
 
-  int modifier(int input) {
+  public int modifier(int input) {
     return (int) Math.floor((input - 10) / 2.0);
   }
 
-  int getStrength() {
+  public int getStrength() {
     return strength;
   }
 
-  int getDexterity() {
+  public int getDexterity() {
     return dexterity;
   }
 
-  int getConstitution() {
+  public int getConstitution() {
     return constitution;
   }
 
-  int getIntelligence() {
+  public int getIntelligence() {
     return intelligence;
   }
 
-  int getWisdom() {
+  public int getWisdom() {
     return wisdom;
   }
 
-  int getCharisma() {
+  public int getCharisma() {
     return charisma;
   }
 
-  int getHitpoints() {
+  public int getHitpoints() {
     return hitpoints;
   }
 }
