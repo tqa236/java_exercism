@@ -1,6 +1,6 @@
 class RaindropConverter {
 
-  String convert(int number) {
+  public String convert(int number) {
     String s = "";
     if (number % 3 == 0) {
       s = s + "Pling";
@@ -11,7 +11,7 @@ class RaindropConverter {
     if (number % 7 == 0) {
       s = s + "Plong";
     }
-    if (s.equals("")) {
+    if ("".equals(s)) {
       return String.valueOf(number);
     }
     return s;

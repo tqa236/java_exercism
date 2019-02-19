@@ -29,7 +29,7 @@ class ProteinTranslator {
     List<String> proteins = new ArrayList<>();
     for (int i = 0; i < rnaSequence.length(); i = i + 3) {
       protein = values.get(rnaSequence.substring(i, i + 3));
-      if (protein != "STOP") {
+      if (!"STOP".equals(protein)) {
         proteins.add(protein);
       } else {
         break;

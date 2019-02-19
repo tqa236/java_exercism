@@ -7,7 +7,7 @@ class Darts {
     this.y = y;
   }
 
-  int score() {
+  public int score() {
     if (x * x + y * y <= 1) return 10;
     if (x * x + y * y <= 25) return 5;
     if (x * x + y * y <= 100) return 1;
