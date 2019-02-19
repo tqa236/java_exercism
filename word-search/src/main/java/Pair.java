@@ -9,11 +9,11 @@ class Pair {
     this.x = x;
   }
 
-  int getX() {
+  public int getX() {
     return x;
   }
 
-  int getY() {
+  public int getY() {
     return y;
   }
 

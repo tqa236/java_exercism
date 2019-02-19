@@ -1,4 +1,3 @@
-
 public class RomanNumeral {
 
   private int number;
@@ -9,7 +8,7 @@ public class RomanNumeral {
     this.number = number;
   }
 
-  String getRomanNumeral() {
+  public String getRomanNumeral() {
     return "I";
   }
 }

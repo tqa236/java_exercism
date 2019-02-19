@@ -5,7 +5,7 @@ class Proverb {
         "Delete this statement and write your own implementation.");
   }
 
-  String recite() {
+  public String recite() {
     throw new UnsupportedOperationException(
         "Delete this statement and write your own implementation.");
   }

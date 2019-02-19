@@ -5,7 +5,7 @@ class SumOfMultiples {
         "Delete this statement and write your own implementation.");
   }
 
-  int getSum() {
+  public int getSum() {
     throw new UnsupportedOperationException(
         "Delete this statement and write your own implementation.");
   }

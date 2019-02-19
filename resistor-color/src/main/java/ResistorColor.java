@@ -17,11 +17,11 @@ class ResistorColor {
         }
       };
 
-  int colorCode(String color) {
+  public int colorCode(String color) {
     return values.get(color);
   }
 
-  String[] colors() {
+  public String[] colors() {
     String[] allColors = {
       "black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"
     };
