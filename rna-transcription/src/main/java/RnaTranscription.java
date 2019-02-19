@@ -1,15 +1,15 @@
 import java.util.*;
 
 class RnaTranscription {
-  private static final HashMap<String, String> values =
-      new HashMap<String, String>() {
-        {
-          put("G", "C");
-          put("C", "G");
-          put("T", "A");
-          put("A", "U");
-        }
-      };
+  private static final HashMap<String, String> values = new HashMap<String, String>();
+
+  static {
+    values.put("G", "C");
+    values.put("C", "G");
+    values.put("T", "A");
+    values.put("A", "U");
+  }
+
   private String rna = "";
 
   public String transcribe(String dnaStrand) {
