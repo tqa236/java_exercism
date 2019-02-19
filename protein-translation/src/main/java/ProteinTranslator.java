@@ -23,9 +23,8 @@ class ProteinTranslator {
     values.put("UGA", "STOP");
   }
 
-  private String protein;
-
   public List<String> translate(String rnaSequence) {
+    String protein;
     List<String> proteins = new ArrayList<>();
     for (int i = 0; i < rnaSequence.length(); i = i + 3) {
       protein = values.get(rnaSequence.substring(i, i + 3));

@@ -4,17 +4,16 @@ import java.util.HashMap;
 import java.util.List;
 
 class HandshakeCalculator {
-  private static final HashMap<Integer, Signal> values =
-      new HashMap<Integer, Signal>() {
-        {
-          put(4, Signal.WINK);
-          put(3, Signal.DOUBLE_BLINK);
-          put(2, Signal.CLOSE_YOUR_EYES);
-          put(1, Signal.JUMP);
-        }
-      };
+  private static final HashMap<Integer, Signal> values = new HashMap<Integer, Signal>();
 
-  List<Signal> calculateHandshake(int number) {
+  static {
+    values.put(4, Signal.WINK);
+    values.put(3, Signal.DOUBLE_BLINK);
+    values.put(2, Signal.CLOSE_YOUR_EYES);
+    values.put(1, Signal.JUMP);
+  }
+
+  public List<Signal> calculateHandshake(int number) {
     List<Signal> signal = new ArrayList<Signal>();
     String binary = Integer.toBinaryString(number % 32);
     int missing_length = 5 - binary.length();

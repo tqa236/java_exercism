@@ -1,6 +1,6 @@
 class Markdown {
 
-  String parse(String markdown) {
+  public String parse(String markdown) {
 
     String[] lines = markdown.split("\n");
 
