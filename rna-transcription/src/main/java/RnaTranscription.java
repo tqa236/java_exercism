@@ -12,7 +12,7 @@ class RnaTranscription {
       };
   private String rna = "";
 
-  String transcribe(String dnaStrand) {
+  public String transcribe(String dnaStrand) {
     for (char ch : dnaStrand.toCharArray()) {
       rna = rna + values.get("" + ch);
     }

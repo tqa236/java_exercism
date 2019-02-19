@@ -6,7 +6,7 @@ class Acronym {
     this.phrase = phrase;
   }
 
-  String getAcronym() {
+  public String getAcronym() {
     String acronym = "";
     Boolean isAcronym = true;
     for (char c : phrase.toCharArray()) {

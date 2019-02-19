@@ -1,5 +1,5 @@
 class ArmstrongNumbers {
-  boolean isArmstrongNumber(int numberToCheck) {
+  public boolean isArmstrongNumber(int numberToCheck) {
     int number = numberToCheck;
     int armstrongNumbers = 0;
     int numDigit = (int) Math.ceil(Math.log10(number));

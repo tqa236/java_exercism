@@ -19,7 +19,7 @@ class NucleotideCounter {
     this.dnaStrand = dnaStrand;
   };
 
-  Map<Character, Integer> nucleotideCounts() throws IllegalArgumentException {
+  public Map<Character, Integer> nucleotideCounts() throws IllegalArgumentException {
     for (char ch : dnaStrand.toCharArray()) counts.put(ch, counts.get(ch) + 1);
     return counts;
   };
