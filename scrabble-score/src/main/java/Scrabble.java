@@ -40,7 +40,7 @@ class Scrabble {
     this.word = word;
   }
 
-  int getScore() {
+  public int getScore() {
     for (int i = 0; i < word.length(); i++) {
       score = score + values.get(("" + word.charAt(i)).toLowerCase());
     }

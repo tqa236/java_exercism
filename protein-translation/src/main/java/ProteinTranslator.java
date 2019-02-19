@@ -25,7 +25,7 @@ class ProteinTranslator {
       };
   String protein;
 
-  List<String> translate(String rnaSequence) {
+  public List<String> translate(String rnaSequence) {
     List<String> proteins = new ArrayList<>();
     for (int i = 0; i < rnaSequence.length(); i = i + 3) {
       protein = values.get(rnaSequence.substring(i, i + 3));

@@ -5,15 +5,15 @@ class Gigasecond {
   private LocalDateTime birthDateTime;
   private static final int GIGASECOND = 1000000000;
 
-  Gigasecond(LocalDate birthDate) {
+  public Gigasecond(LocalDate birthDate) {
     birthDateTime = birthDate.atStartOfDay();
   }
 
-  Gigasecond(LocalDateTime birthDateTime) {
+  public Gigasecond(LocalDateTime birthDateTime) {
     this.birthDateTime = birthDateTime;
   }
 
-  LocalDateTime getDateTime() {
+  public LocalDateTime getDateTime() {
     return birthDateTime.plusSeconds(GIGASECOND);
   }
 }
