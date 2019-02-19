@@ -9,11 +9,11 @@ class Domino {
     this.right = right;
   }
 
-  int getLeft() {
+  public int getLeft() {
     return this.left;
   }
 
-  int getRight() {
+  public int getRight() {
     return this.right;
   }
 

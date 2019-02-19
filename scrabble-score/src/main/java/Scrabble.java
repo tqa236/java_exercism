@@ -4,37 +4,36 @@ class Scrabble {
 
   private String word;
   private int score;
-  private static final HashMap<String, Integer> values =
-      new HashMap<String, Integer>() {
-        {
-          put("a", 1);
-          put("e", 1);
-          put("i", 1);
-          put("o", 1);
-          put("u", 1);
-          put("l", 1);
-          put("n", 1);
-          put("r", 1);
-          put("s", 1);
-          put("t", 1);
-          put("d", 2);
-          put("g", 2);
-          put("b", 3);
-          put("c", 3);
-          put("m", 3);
-          put("p", 3);
-          put("f", 4);
-          put("h", 4);
-          put("v", 4);
-          put("w", 4);
-          put("y", 4);
-          put("k", 5);
-          put("j", 8);
-          put("x", 8);
-          put("q", 10);
-          put("z", 10);
-        }
-      };
+  private static final HashMap<String, Integer> values = new HashMap<String, Integer>();
+
+  {
+    values.put("a", 1);
+    values.put("e", 1);
+    values.put("i", 1);
+    values.put("o", 1);
+    values.put("u", 1);
+    values.put("l", 1);
+    values.put("n", 1);
+    values.put("r", 1);
+    values.put("s", 1);
+    values.put("t", 1);
+    values.put("d", 2);
+    values.put("g", 2);
+    values.put("b", 3);
+    values.put("c", 3);
+    values.put("m", 3);
+    values.put("p", 3);
+    values.put("f", 4);
+    values.put("h", 4);
+    values.put("v", 4);
+    values.put("w", 4);
+    values.put("y", 4);
+    values.put("k", 5);
+    values.put("j", 8);
+    values.put("x", 8);
+    values.put("q", 10);
+    values.put("z", 10);
+  }
 
   Scrabble(String word) {
     this.word = word;
