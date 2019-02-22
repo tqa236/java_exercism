@@ -1,12 +1,12 @@
 enum Allergen {
-  EGGS(1),
-  PEANUTS(2),
-  SHELLFISH(4),
-  STRAWBERRIES(8),
-  TOMATOES(16),
-  CHOCOLATE(32),
-  POLLEN(64),
-  CATS(128);
+  EGGS(0),
+  PEANUTS(1),
+  SHELLFISH(2),
+  STRAWBERRIES(3),
+  TOMATOES(4),
+  CHOCOLATE(5),
+  POLLEN(6),
+  CATS(7);
 
   private final int score;
 
