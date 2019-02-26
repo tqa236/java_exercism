@@ -1,6 +1,5 @@
 import static org.junit.Assert.*;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class SumOfMultiplesTest {
@@ -13,7 +12,7 @@ public class SumOfMultiplesTest {
     assertEquals(0, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testOneFactorHasMultiplesWithinLimit() {
 
@@ -22,7 +21,7 @@ public class SumOfMultiplesTest {
     assertEquals(3, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testMoreThanOneMultipleWithinLimit() {
 
@@ -31,7 +30,7 @@ public class SumOfMultiplesTest {
     assertEquals(9, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testMoreThanOneFactorWithMultiplesWithinLimit() {
 
@@ -40,7 +39,7 @@ public class SumOfMultiplesTest {
     assertEquals(23, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testEachMultipleIsOnlyCountedOnce() {
 
@@ -49,7 +48,7 @@ public class SumOfMultiplesTest {
     assertEquals(2318, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testAMuchLargerLimit() {
 
@@ -58,7 +57,7 @@ public class SumOfMultiplesTest {
     assertEquals(233168, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testThreeFactors() {
 
@@ -67,7 +66,7 @@ public class SumOfMultiplesTest {
     assertEquals(51, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testFactorsNotRelativelyPrime() {
 
@@ -76,7 +75,7 @@ public class SumOfMultiplesTest {
     assertEquals(30, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testSomePairsOfFactorsRelativelyPrimeAndSomeNot() {
 
@@ -85,7 +84,7 @@ public class SumOfMultiplesTest {
     assertEquals(4419, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testOneFactorIsAMultipleOfAnother() {
 
@@ -94,7 +93,7 @@ public class SumOfMultiplesTest {
     assertEquals(275, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testMuchLargerFactors() {
 
@@ -103,7 +102,7 @@ public class SumOfMultiplesTest {
     assertEquals(2203160, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testAllNumbersAreMultiplesOf1() {
 
@@ -112,7 +111,7 @@ public class SumOfMultiplesTest {
     assertEquals(4950, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testNoFactorsMeanAnEmptySum() {
 
@@ -121,7 +120,7 @@ public class SumOfMultiplesTest {
     assertEquals(0, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testSumOfMultiplesOfZeroIsZero() {
 
@@ -130,7 +129,7 @@ public class SumOfMultiplesTest {
     assertEquals(0, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testFactorZeroDoesNotAffectTheSumOfMultiplesOfOtherFactors() {
 
@@ -139,7 +138,7 @@ public class SumOfMultiplesTest {
     assertEquals(3, output);
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testSolutionsUsingIncludeExcludeMustExtendToCardinalityGreater3() {
 
