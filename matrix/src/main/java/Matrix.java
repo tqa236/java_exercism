@@ -18,11 +18,11 @@ class Matrix {
             .collect(Collectors.toList());
   }
 
-  int[] getRow(int rowNumber) {
+  public int[] getRow(int rowNumber) {
     return rows.get(rowNumber).stream().mapToInt(i -> i).toArray();
   }
 
-  int[] getColumn(int columnNumber) {
+  public int[] getColumn(int columnNumber) {
     return rows.stream().map(row -> row.get(columnNumber)).mapToInt(i -> i).toArray();
   }
 }
