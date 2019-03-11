@@ -9,13 +9,13 @@ class PhoneNumber {
     return number;
   }
 
-  private String isValid(String number) {
-    String illegalCharacters = number.replaceAll("[0-9 ()+\\-\\.]", "");
+  private String isValid(String number_) {
+    String illegalCharacters = number_.replaceAll("[0-9 ()+\\-\\.]", "");
     if (illegalCharacters.length() > 0) {
       throw new IllegalArgumentException(
           "Illegal character in phone number. Only digits, spaces, parentheses, hyphens or dots accepted.");
     }
-    number = number.replaceAll("[^0-9]", "");
+    number = number_.replaceAll("[^0-9]", "");
     if ((number.length() < 10) || (number.length() > 11)) {
       throw new IllegalArgumentException("Number must be 10 or 11 digits");
     } else if (number.charAt(number.length() - 10) < '2') {
