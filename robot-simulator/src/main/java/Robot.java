@@ -37,6 +37,9 @@ class Robot {
         break;
       case WEST:
         position = new GridPosition(position.getX() - 1, position.getY());
+        break;
+      default:
+        throw new IllegalArgumentException("Unknow orientation");
     }
   }
 
@@ -52,6 +55,9 @@ class Robot {
           break;
         case 'A':
           advance();
+          break;
+        default:
+          throw new IllegalArgumentException("Unknow movement");
       }
     }
   }

@@ -24,10 +24,9 @@ class Yacht {
         break;
       case FULL_HOUSE:
         if (distinctValue == 2) {
-          switch (Math.toIntExact(Arrays.stream(dice).filter(num -> num == dice[0]).count())) {
-            case 2:
-            case 3:
-              score = sumDice;
+          long count = Arrays.stream(dice).filter(num -> num == dice[0]).count();
+          if (count == 2 || count == 3) {
+            score = sumDice;
           }
         }
         break;
@@ -40,6 +39,9 @@ class Yacht {
             case 4:
             case 5:
               score = dice[0] * 4;
+              break;
+            default:
+              score = 0;
           }
         }
         break;
@@ -52,6 +54,8 @@ class Yacht {
       case CHOICE:
         score = sumDice;
         break;
+      default:
+        throw new IllegalArgumentException("Unknow category");
     }
   }
 
