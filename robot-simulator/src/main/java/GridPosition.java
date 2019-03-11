@@ -30,4 +30,12 @@ class GridPosition {
       return true;
     }
   }
+
+  public int getX() {
+    return this.x;
+  }
+
+  public int getY() {
+    return this.y;
+  }
 }
