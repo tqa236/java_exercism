@@ -56,7 +56,7 @@ public class LuhnValidatorTest {
   // @Ignore("Remove to run test")
   @Test
   public void testStringsContainingNonDigitInvalid() {
-    assertFalse(luhnValidator.isValid("055a 444 285"));
+    assertFalse(luhnValidator.isValid("055b 444 285"));
   }
 
   // @Ignore("Remove to run test")
