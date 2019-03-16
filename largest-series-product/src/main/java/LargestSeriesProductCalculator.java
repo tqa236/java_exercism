@@ -1,11 +1,13 @@
+import java.util.stream.IntStream;
+
 class LargestSeriesProductCalculator {
+  private IntStream digits;
+
   LargestSeriesProductCalculator(String inputNumber) {
-    throw new UnsupportedOperationException(
-        "Delete this statement and write your own implementation.");
+    digits = inputNumber.chars();
   }
 
   long calculateLargestProductForSeriesLength(int numberOfDigits) {
-    throw new UnsupportedOperationException(
-        "Delete this statement and write your own implementation.");
+    return 0;
   }
 }
