@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class AnagramTest {
@@ -15,7 +14,7 @@ public class AnagramTest {
     assertTrue(detector.match(Arrays.asList("hello", "world", "zombies", "pants")).isEmpty());
   }
 
-  // @Ignore("Remove to run test")
+  // // @Ignore("Remove to run test")
   @Test
   public void testDetectMultipleAnagrams() {
     Anagram detector = new Anagram("master");
@@ -23,14 +22,14 @@ public class AnagramTest {
     assertThat(anagrams, allOf(hasItem("maters"), hasItem("stream")));
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testEliminateAnagramSubsets() {
     Anagram detector = new Anagram("good");
     assertTrue(detector.match(Arrays.asList("dog", "goody")).isEmpty());
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testDetectLongerAnagram() {
     Anagram detector = new Anagram("listen");
@@ -38,7 +37,7 @@ public class AnagramTest {
     assertThat(anagrams, hasItem("inlets"));
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testDetectMultipleAnagramsForLongerWord() {
     Anagram detector = new Anagram("allergy");
@@ -51,14 +50,14 @@ public class AnagramTest {
     assertThat(anagrams, allOf(hasItem("gallery"), hasItem("regally"), hasItem("largely")));
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testEliminateAnagramsWithSameChecksum() {
     Anagram detector = new Anagram("mass");
     assertTrue(detector.match(Collections.singletonList("last")).isEmpty());
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testCaseInsensitiveWhenBothAnagramAndSubjectStartWithUpperCaseLetter() {
     Anagram detector = new Anagram("Orchestra");
@@ -66,7 +65,7 @@ public class AnagramTest {
     assertThat(anagrams, hasItem("Carthorse"));
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testCaseInsensitiveWhenSubjectStartsWithUpperCaseLetter() {
     Anagram detector = new Anagram("Orchestra");
@@ -74,7 +73,7 @@ public class AnagramTest {
     assertThat(anagrams, hasItem("carthorse"));
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testCaseInsensitiveWhenAnagramStartsWithUpperCaseLetter() {
     Anagram detector = new Anagram("orchestra");
@@ -82,21 +81,21 @@ public class AnagramTest {
     assertThat(anagrams, hasItem("Carthorse"));
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testIdenticalWordRepeatedIsNotAnagram() {
     Anagram detector = new Anagram("go");
     assertTrue(detector.match(Collections.singletonList("go Go GO")).isEmpty());
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testAnagramMustUseAllLettersExactlyOnce() {
     Anagram detector = new Anagram("tapper");
     assertTrue(detector.match(Collections.singletonList("patter")).isEmpty());
   }
 
-  @Ignore("Remove to run test")
+  // @Ignore("Remove to run test")
   @Test
   public void testCapitalWordIsNotOwnAnagram() {
     Anagram detector = new Anagram("BANANA");
