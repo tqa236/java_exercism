@@ -22,21 +22,21 @@ public class AlphameticsTest {
         assertEquals(expected, new Alphametics("I + BB == ILL").solve());
     }
 
-    @Ignore("Remove to run test")
+    // @Ignore("Remove to run test")
     @Test
     public void testUniqueValue() throws UnsolvablePuzzleException {
         expectedException.expect(UnsolvablePuzzleException.class);
         new Alphametics("A == B").solve();
     }
 
-    @Ignore("Remove to run test")
+    // @Ignore("Remove to run test")
     @Test
     public void testLeadingZero() throws UnsolvablePuzzleException {
         expectedException.expect(UnsolvablePuzzleException.class);
         assertNull(new Alphametics("ACA + DD == BD").solve());
     }
 
-    @Ignore("Remove to run test")
+    // @Ignore("Remove to run test")
     @Test
     public void testFourLetters() throws UnsolvablePuzzleException {
         LinkedHashMap<Character, Integer> expected = new LinkedHashMap<>();
@@ -48,7 +48,7 @@ public class AlphameticsTest {
         assertEquals(expected, new Alphametics("AS + A == MOM").solve());
     }
 
-    @Ignore("Remove to run test")
+    // @Ignore("Remove to run test")
     @Test
     public void testSixLetters() throws UnsolvablePuzzleException {
         LinkedHashMap<Character, Integer> expected = new LinkedHashMap<>();
@@ -62,7 +62,7 @@ public class AlphameticsTest {
         assertEquals(expected, new Alphametics("NO + NO + TOO == LATE").solve());
     }
 
-    @Ignore("Remove to run test")
+    // @Ignore("Remove to run test")
     @Test
     public void testSevenLetters() throws UnsolvablePuzzleException {
         LinkedHashMap<Character, Integer> expected = new LinkedHashMap<>();
@@ -77,7 +77,7 @@ public class AlphameticsTest {
         assertEquals(expected, new Alphametics("HE + SEES + THE == LIGHT").solve());
     }
 
-    @Ignore("Remove to run test")
+    // @Ignore("Remove to run test")
     @Test
     public void testEightLetters() throws UnsolvablePuzzleException {
         LinkedHashMap<Character, Integer> expected = new LinkedHashMap<>();
@@ -93,7 +93,7 @@ public class AlphameticsTest {
         assertEquals(expected, new Alphametics("SEND + MORE == MONEY").solve());
     }
 
-    @Ignore("Remove to run test")
+    // @Ignore("Remove to run test")
     @Test
     public void testTenLetters() throws UnsolvablePuzzleException {
         LinkedHashMap<Character, Integer> expected = new LinkedHashMap<>();
@@ -111,7 +111,7 @@ public class AlphameticsTest {
         assertEquals(expected, new Alphametics("AND + A + STRONG + OFFENSE + AS + A + GOOD == DEFENSE").solve());
     }
 
-    @Ignore("Remove to run test")
+    // @Ignore("Remove to run test")
     @Test
     public void testTenLetters41Addends() throws UnsolvablePuzzleException {
         LinkedHashMap<Character, Integer> expected = new LinkedHashMap<>();

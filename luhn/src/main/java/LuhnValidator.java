@@ -18,6 +18,7 @@ class LuhnValidator {
                 .map(
                     n ->
                         (n % 2 == digits.size() % 2)
+                            // ? (2 * digits.get(n) - 9 * (digits.get(n) / 5))
                             ? (2 * digits.get(n) - 9 * (digits.get(n) >= 5 ? 1 : 0))
                             : digits.get(n))
                 .sum()
