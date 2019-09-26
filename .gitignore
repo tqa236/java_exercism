@@ -42,4 +42,5 @@ gradle-app.setting
 **/.settings/
 **/.classpath
 **/.project
+**/bin/
 .tags*
