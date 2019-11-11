@@ -7,16 +7,16 @@ class RotationalCipher {
 
   String rotate(String data) {
     return data.chars()
-        .map(ch -> convertChar((char) ch))
+        .map(ch -> convertChar(ch))
         .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
         .toString();
   }
 
-  char convertChar(char ch) {
+  int convertChar(int ch) {
     if (ch >= 'A' && ch <= 'Z') {
-      return (char) ((ch - 'A' + shiftKey) % 26 + 'A');
+      return ((ch - 'A' + shiftKey) % 26 + 'A');
     } else if (ch >= 'a' && ch <= 'z') {
-      return (char) ((ch - 'a' + shiftKey) % 26 + 'a');
+      return ((ch - 'a' + shiftKey) % 26 + 'a');
     } else {
       return ch;
     }
