@@ -7,6 +7,7 @@ install: true
 script:
   - ./update_gradle.sh
   - ./test.sh
-
+ -  ./generate_report.sh
+ 
 after_success:
  - bash <(curl -s https://codecov.io/bash)
