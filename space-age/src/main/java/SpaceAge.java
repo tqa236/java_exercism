@@ -5,39 +5,39 @@ class SpaceAge {
     this.seconds = seconds;
   }
 
-  public double getSeconds() {
+  double getSeconds() {
     return this.seconds;
   }
 
-  public double onEarth() {
+  double onEarth() {
     return this.seconds / 31557600;
   }
 
-  public double onMercury() {
+  double onMercury() {
     return this.seconds / (31557600 * 0.2408467);
   }
 
-  public double onVenus() {
+  double onVenus() {
     return this.seconds / (31557600 * 0.61519726);
   }
 
-  public double onMars() {
+  double onMars() {
     return this.seconds / (31557600 * 1.8808158);
   }
 
-  public double onJupiter() {
+  double onJupiter() {
     return this.seconds / (31557600 * 11.862615);
   }
 
-  public double onSaturn() {
+  double onSaturn() {
     return this.seconds / (31557600 * 29.447498);
   }
 
-  public double onUranus() {
+  double onUranus() {
     return this.seconds / (31557600 * 84.016846);
   }
 
-  public double onNeptune() {
+  double onNeptune() {
     return this.seconds / (31557600 * 164.79132);
   }
 }

@@ -1,11 +1,12 @@
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PangramChecker {
 
   public boolean isPangram(String input) {
     Set<Character> letters = new HashSet<Character>();
-    String sentence = input.replaceAll("[^a-zA-Z]", "").toLowerCase();
-    for (char c : sentence.toCharArray()) {
+    input = input.replaceAll("[^a-zA-Z]", "").toLowerCase();
+    for (char c : input.toCharArray()) {
       letters.add(c);
     }
 
