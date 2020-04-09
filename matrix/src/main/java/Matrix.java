@@ -19,10 +19,10 @@ class Matrix {
   }
 
   public int[] getRow(int rowNumber) {
-    return rows.get(rowNumber).stream().mapToInt(i -> i).toArray();
+    return rows.get(rowNumber - 1).stream().mapToInt(i -> i).toArray();
   }
 
   public int[] getColumn(int columnNumber) {
-    return rows.stream().map(row -> row.get(columnNumber)).mapToInt(i -> i).toArray();
+    return rows.stream().map(row -> row.get(columnNumber - 1)).mapToInt(i -> i).toArray();
   }
 }
