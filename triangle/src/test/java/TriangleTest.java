@@ -1,13 +1,10 @@
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 public class TriangleTest {
-
-  @Rule public ExpectedException expectedException = ExpectedException.none();
 
   @Test
   public void equilateralTrianglesHaveEqualSides() throws TriangleException {
@@ -31,9 +28,8 @@ public class TriangleTest {
   }
 
   @Test
-  public void trianglesWithNoSizeAreIllegal() throws TriangleException {
-    expectedException.expect(TriangleException.class);
-    new Triangle(0, 0, 0);
+  public void trianglesWithNoSizeAreIllegal() {
+    assertThrows(TriangleException.class, () -> new Triangle(0, 0, 0));
   }
 
   @Test
@@ -79,21 +75,18 @@ public class TriangleTest {
   }
 
   @Test
-  public void firstTriangleInequalityViolation() throws TriangleException {
-    expectedException.expect(TriangleException.class);
-    new Triangle(1, 1, 3);
+  public void firstTriangleInequalityViolation() {
+    assertThrows(TriangleException.class, () -> new Triangle(1, 1, 3));
   }
 
   @Test
-  public void secondTriangleInequalityViolation() throws TriangleException {
-    expectedException.expect(TriangleException.class);
-    new Triangle(1, 3, 1);
+  public void secondTriangleInequalityViolation() {
+    assertThrows(TriangleException.class, () -> new Triangle(1, 3, 1));
   }
 
   @Test
-  public void thirdTriangleInequalityViolation() throws TriangleException {
-    expectedException.expect(TriangleException.class);
-    new Triangle(3, 1, 1);
+  public void thirdTriangleInequalityViolation() {
+    assertThrows(TriangleException.class, () -> new Triangle(3, 1, 1));
   }
 
   @Test
@@ -125,9 +118,8 @@ public class TriangleTest {
   }
 
   @Test
-  public void mayNotViolateTriangleInequality() throws TriangleException {
-    expectedException.expect(TriangleException.class);
-    new Triangle(7, 3, 2);
+  public void mayNotViolateTriangleInequality() {
+    assertThrows(TriangleException.class, () -> new Triangle(7, 3, 2));
   }
 
   @Test

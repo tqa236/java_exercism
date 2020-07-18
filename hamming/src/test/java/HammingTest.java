@@ -1,12 +1,10 @@
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 public class HammingTest {
-
-  @Rule public ExpectedException expectedException = ExpectedException.none();
 
   @Test
   public void testNoDistanceBetweenEmptyStrands() {
@@ -35,33 +33,33 @@ public class HammingTest {
 
   @Test
   public void testValidatesFirstStrandNotLonger() {
-    expectedException.expect(IllegalArgumentException.class);
-    expectedException.expectMessage("leftStrand and rightStrand must be of equal length.");
+    IllegalArgumentException expected =
+        assertThrows(IllegalArgumentException.class, () -> new Hamming("AATG", "AAA"));
 
-    new Hamming("AATG", "AAA");
+    assertThat(expected).hasMessage("leftStrand and rightStrand must be of equal length.");
   }
 
   @Test
   public void testValidatesSecondStrandNotLonger() {
-    expectedException.expect(IllegalArgumentException.class);
-    expectedException.expectMessage("leftStrand and rightStrand must be of equal length.");
+    IllegalArgumentException expected =
+        assertThrows(IllegalArgumentException.class, () -> new Hamming("ATA", "AGTG"));
 
-    new Hamming("ATA", "AGTG");
+    assertThat(expected).hasMessage("leftStrand and rightStrand must be of equal length.");
   }
 
   @Test
   public void testDisallowLeftEmptyStrand() {
-    expectedException.expect(IllegalArgumentException.class);
-    expectedException.expectMessage("left strand must not be empty.");
+    IllegalArgumentException expected =
+        assertThrows(IllegalArgumentException.class, () -> new Hamming("", "G"));
 
-    new Hamming("", "G");
+    assertThat(expected).hasMessage("left strand must not be empty.");
   }
 
   @Test
   public void testDisallowRightEmptyStrand() {
-    expectedException.expect(IllegalArgumentException.class);
-    expectedException.expectMessage("right strand must not be empty.");
+    IllegalArgumentException expected =
+        assertThrows(IllegalArgumentException.class, () -> new Hamming("G", ""));
 
-    new Hamming("G", "");
+    assertThat(expected).hasMessage("right strand must not be empty.");
   }
 }
