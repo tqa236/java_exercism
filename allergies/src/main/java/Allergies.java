@@ -4,7 +4,7 @@ class Allergies {
   private int score;
 
   Allergies(int score) {
-    this.score = score % 256 + 256;
+    this.score = score % 256;
   }
 
   public boolean isAllergicTo(Allergen allergen) {
