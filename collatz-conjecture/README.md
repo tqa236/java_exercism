@@ -1,11 +1,17 @@
 # Collatz Conjecture
 
+Welcome to Collatz Conjecture on Exercism's Java Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
+
+## Instructions
+
 The Collatz Conjecture or 3x+1 problem can be summarized as follows:
 
-Take any positive integer n. If n is even, divide n by 2 to get n / 2. If n is
-odd, multiply n by 3 and add 1 to get 3n + 1. Repeat the process indefinitely.
-The conjecture states that no matter which number you start with, you will
-always reach 1 eventually.
+Take any positive integer n.
+If n is even, divide n by 2 to get n / 2.
+If n is odd, multiply n by 3 and add 1 to get 3n + 1.
+Repeat the process indefinitely.
+The conjecture states that no matter which number you start with, you will always reach 1 eventually.
 
 Given a number n, return the number of steps required to reach 1.
 
@@ -24,22 +30,34 @@ Starting with n = 12, the steps would be as follows:
 8. 2
 9. 1
 
-Resulting in 9 steps. So for input n = 12, the return value would be 9.
-
-# Running the tests
-
-You can run all the tests for an exercise by entering
-
-```sh
-$ gradle test
-```
-
-in your terminal.
+Resulting in 9 steps.
+So for input n = 12, the return value would be 9.
 
 ## Source
 
-An unsolved problem in mathematics named after mathematician Lothar Collatz [https://en.wikipedia.org/wiki/3x_%2B_1_problem](https://en.wikipedia.org/wiki/3x_%2B_1_problem)
+### Created by
 
-## Submitting Incomplete Solutions
+- @stkent
 
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+### Contributed to by
+
+- @aadityakulkarni
+- @FridaTveit
+- @jackattack24
+- @jmrunkle
+- @kytrinyx
+- @lemoncurry
+- @mirkoperillo
+- @msomji
+- @muzimuzhi
+- @redshirt4
+- @sjwarner-bp
+- @SleeplessByte
+- @Smarticles101
+- @sshine
+- @ThomasVitale
+- @Zaldrick
+
+### Based on
+
+An unsolved problem in mathematics named after mathematician Lothar Collatz - https://en.wikipedia.org/wiki/3x_%2B_1_problem

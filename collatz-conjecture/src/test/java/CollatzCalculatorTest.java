@@ -1,59 +1,45 @@
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Before;
-import org.junit.Rule;
+import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class CollatzCalculatorTest {
 
-  @Rule public ExpectedException expectedException = ExpectedException.none();
+    private CollatzCalculator collatzCalculator = new CollatzCalculator();
 
-  private CollatzCalculator collatzCalculator;
+    @Test
+    public void testZeroStepsRequiredWhenStartingFrom1() {
+        assertThat(collatzCalculator.computeStepCount(1)).isEqualTo(0);
+    }
 
-  @Before
-  public void setUp() {
-    collatzCalculator = new CollatzCalculator();
-  }
+    @Test
+    public void testCorrectNumberOfStepsWhenAllStepsAreDivisions() {
+        assertThat(collatzCalculator.computeStepCount(16)).isEqualTo(4);
+    }
 
-  @Test
-  public void testZeroStepsRequiredWhenStartingFrom1() {
-    assertEquals(0, collatzCalculator.computeStepCount(1));
-  }
+    @Test
+    public void testCorrectNumberOfStepsWhenBothStepTypesAreNeeded() {
+        assertThat(collatzCalculator.computeStepCount(12)).isEqualTo(9);
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testCorrectNumberOfStepsWhenAllStepsAreDivisions() {
-    assertEquals(4, collatzCalculator.computeStepCount(16));
-  }
+    @Test
+    public void testAVeryLargeInput() {
+        assertThat(collatzCalculator.computeStepCount(1000000)).isEqualTo(152);
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testCorrectNumberOfStepsWhenBothStepTypesAreNeeded() {
-    assertEquals(9, collatzCalculator.computeStepCount(12));
-  }
+    @Test
+    public void testZeroIsConsideredInvalidInput() {
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> collatzCalculator.computeStepCount(0))
+                .withMessage("Only positive integers are allowed");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testAVeryLargeInput() {
-    assertEquals(152, collatzCalculator.computeStepCount(1000000));
-  }
+    @Test
+    public void testNegativeIntegerIsConsideredInvalidInput() {
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> collatzCalculator.computeStepCount(-15))
+                .withMessage("Only positive integers are allowed");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testZeroIsConsideredInvalidInput() {
-    expectedException.expect(IllegalArgumentException.class);
-    expectedException.expectMessage("Only natural numbers are allowed");
-
-    collatzCalculator.computeStepCount(0);
-  }
-
-  // @Ignore("Remove to run test")
-  @Test
-  public void testNegativeIntegerIsConsideredInvalidInput() {
-    expectedException.expect(IllegalArgumentException.class);
-    expectedException.expectMessage("Only natural numbers are allowed");
-
-    collatzCalculator.computeStepCount(-15);
-  }
 }
