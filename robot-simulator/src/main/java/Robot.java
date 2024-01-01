@@ -17,29 +17,36 @@ class Robot {
   }
 
   public void turnLeft() {
-    orientation = orientation.previous();
+    orientation = switch (orientation) {
+      case NORTH -> Orientation.WEST;
+      case WEST -> Orientation.SOUTH;
+      case SOUTH -> Orientation.EAST;
+      case EAST -> Orientation.NORTH;
+    };
   }
 
   public void turnRight() {
-    orientation = orientation.next();
+    orientation = switch (orientation) {
+      case NORTH -> Orientation.EAST;
+      case EAST -> Orientation.SOUTH;
+      case SOUTH -> Orientation.WEST;
+      case WEST -> Orientation.NORTH;
+    };
   }
 
   public void advance() {
     switch (orientation) {
       case NORTH:
-        position = new GridPosition(position.getX(), position.getY() + 1);
+        position = new GridPosition(position.x, position.y + 1);
         break;
       case EAST:
-        position = new GridPosition(position.getX() + 1, position.getY());
+        position = new GridPosition(position.x + 1, position.y);
         break;
       case SOUTH:
-        position = new GridPosition(position.getX(), position.getY() - 1);
+        position = new GridPosition(position.x, position.y - 1);
         break;
       case WEST:
-        position = new GridPosition(position.getX() - 1, position.getY());
-        break;
-      default:
-        throw new IllegalArgumentException("Unknow orientation");
+        position = new GridPosition(position.x - 1, position.y);
     }
   }
 
@@ -55,9 +62,6 @@ class Robot {
           break;
         case 'A':
           advance();
-          break;
-        default:
-          throw new IllegalArgumentException("Unknow movement");
       }
     }
   }

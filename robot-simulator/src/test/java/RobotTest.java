@@ -1,239 +1,234 @@
-import static org.junit.Assert.assertEquals;
-
+import org.junit.Ignore;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RobotTest {
 
-  @Test
-  public void robotsAreCreatedWithAPositionAndOrientation() {
-    Orientation initialOrientation = Orientation.NORTH;
-    GridPosition initialGridPosition = new GridPosition(0, 0);
-    Robot robot = new Robot(initialGridPosition, initialOrientation);
+    /* Create robot */
 
-    assertEquals(initialOrientation, robot.getOrientation());
-    assertEquals(initialGridPosition, robot.getGridPosition());
-  }
+    @Test
+    public void atOriginFacingNorth() {
+        Orientation initialOrientation = Orientation.NORTH;
+        GridPosition initialGridPosition = new GridPosition(0, 0);
+        Robot robot = new Robot(initialGridPosition, initialOrientation);
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void negativePositionsAreAllowed() {
-    GridPosition initialGridPosition = new GridPosition(-1, -1);
-    Orientation initialOrientation = Orientation.SOUTH;
-    Robot robot = new Robot(initialGridPosition, initialOrientation);
+        assertThat(robot.getOrientation()).isEqualTo(initialOrientation);
+        assertThat(robot.getGridPosition()).isEqualTo(initialGridPosition);
+    }
 
-    assertEquals(initialOrientation, robot.getOrientation());
-    assertEquals(initialGridPosition, robot.getGridPosition());
-  }
+    @Test
+    public void atNegativePositionFacingSouth() {
+        GridPosition initialGridPosition = new GridPosition(-1, -1);
+        Orientation initialOrientation = Orientation.SOUTH;
+        Robot robot = new Robot(initialGridPosition, initialOrientation);
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void changesTheDirectionFromNorthToEast() {
-    GridPosition initialGridPosition = new GridPosition(0, 0);
-    Robot robot = new Robot(initialGridPosition, Orientation.NORTH);
+        assertThat(robot.getOrientation()).isEqualTo(initialOrientation);
+        assertThat(robot.getGridPosition()).isEqualTo(initialGridPosition);
+    }
 
-    robot.turnRight();
+    /* Rotating clockwise */
 
-    Orientation expectedOrientation = Orientation.EAST;
-    assertEquals(initialGridPosition, robot.getGridPosition());
-    assertEquals(expectedOrientation, robot.getOrientation());
-  }
+    @Test
+    public void changesNorthToEast() {
+        GridPosition initialGridPosition = new GridPosition(0, 0);
+        Robot robot = new Robot(initialGridPosition, Orientation.NORTH);
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void changesTheDirectionFromEastToSouth() {
-    GridPosition initialGridPosition = new GridPosition(0, 0);
-    Robot robot = new Robot(initialGridPosition, Orientation.EAST);
+        robot.turnRight();
 
-    robot.turnRight();
+        Orientation expectedOrientation = Orientation.EAST;
+        assertThat(robot.getGridPosition()).isEqualTo(initialGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(expectedOrientation);
+    }
 
-    Orientation expectedOrientation = Orientation.SOUTH;
-    assertEquals(initialGridPosition, robot.getGridPosition());
-    assertEquals(expectedOrientation, robot.getOrientation());
-  }
+    @Test
+    public void changesEastToSouth() {
+        GridPosition initialGridPosition = new GridPosition(0, 0);
+        Robot robot = new Robot(initialGridPosition, Orientation.EAST);
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void changesTheDirectionFromSouthToWest() {
-    GridPosition initialGridPosition = new GridPosition(0, 0);
-    Robot robot = new Robot(initialGridPosition, Orientation.SOUTH);
+        robot.turnRight();
 
-    robot.turnRight();
+        Orientation expectedOrientation = Orientation.SOUTH;
+        assertThat(robot.getGridPosition()).isEqualTo(initialGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(expectedOrientation);
+    }
 
-    Orientation expectedOrientation = Orientation.WEST;
-    assertEquals(initialGridPosition, robot.getGridPosition());
-    assertEquals(expectedOrientation, robot.getOrientation());
-  }
+    @Test
+    public void changesSouthToWest() {
+        GridPosition initialGridPosition = new GridPosition(0, 0);
+        Robot robot = new Robot(initialGridPosition, Orientation.SOUTH);
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void changesTheDirectionFromWestToNorth() {
-    GridPosition initialGridPosition = new GridPosition(0, 0);
-    Robot robot = new Robot(initialGridPosition, Orientation.WEST);
+        robot.turnRight();
 
-    robot.turnRight();
+        Orientation expectedOrientation = Orientation.WEST;
+        assertThat(robot.getGridPosition()).isEqualTo(initialGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(expectedOrientation);
+    }
 
-    Orientation expectedOrientation = Orientation.NORTH;
-    assertEquals(initialGridPosition, robot.getGridPosition());
-    assertEquals(expectedOrientation, robot.getOrientation());
-  }
+    @Test
+    public void changesWestToNorth() {
+        GridPosition initialGridPosition = new GridPosition(0, 0);
+        Robot robot = new Robot(initialGridPosition, Orientation.WEST);
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void changesTheDirectionFromNorthToWest() {
-    GridPosition initialGridPosition = new GridPosition(0, 0);
-    Robot robot = new Robot(initialGridPosition, Orientation.NORTH);
+        robot.turnRight();
 
-    robot.turnLeft();
+        Orientation expectedOrientation = Orientation.NORTH;
+        assertThat(robot.getGridPosition()).isEqualTo(initialGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(expectedOrientation);
+    }
 
-    Orientation expectedOrientation = Orientation.WEST;
-    assertEquals(initialGridPosition, robot.getGridPosition());
-    assertEquals(expectedOrientation, robot.getOrientation());
-  }
+    /* Rotating counter-clockwise */
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void changesTheDirectionFromWestToSouth() {
-    GridPosition initialGridPosition = new GridPosition(0, 0);
-    Robot robot = new Robot(initialGridPosition, Orientation.WEST);
+    @Test
+    public void changesNorthToWest() {
+        GridPosition initialGridPosition = new GridPosition(0, 0);
+        Robot robot = new Robot(initialGridPosition, Orientation.NORTH);
 
-    robot.turnLeft();
+        robot.turnLeft();
 
-    Orientation expectedOrientation = Orientation.SOUTH;
-    assertEquals(initialGridPosition, robot.getGridPosition());
-    assertEquals(expectedOrientation, robot.getOrientation());
-  }
+        Orientation expectedOrientation = Orientation.WEST;
+        assertThat(robot.getGridPosition()).isEqualTo(initialGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(expectedOrientation);
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void changesTheDirectionFromSouthToEast() {
-    GridPosition initialGridPosition = new GridPosition(0, 0);
-    Robot robot = new Robot(initialGridPosition, Orientation.SOUTH);
+    @Test
+    public void changesWestToSouth() {
+        GridPosition initialGridPosition = new GridPosition(0, 0);
+        Robot robot = new Robot(initialGridPosition, Orientation.WEST);
 
-    robot.turnLeft();
+        robot.turnLeft();
 
-    Orientation expectedOrientation = Orientation.EAST;
-    assertEquals(initialGridPosition, robot.getGridPosition());
-    assertEquals(expectedOrientation, robot.getOrientation());
-  }
+        Orientation expectedOrientation = Orientation.SOUTH;
+        assertThat(robot.getGridPosition()).isEqualTo(initialGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(expectedOrientation);
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void changesTheDirectionFromEastToNorth() {
-    GridPosition initialGridPosition = new GridPosition(0, 0);
-    Robot robot = new Robot(initialGridPosition, Orientation.EAST);
+    @Test
+    public void changesSouthToEast() {
+        GridPosition initialGridPosition = new GridPosition(0, 0);
+        Robot robot = new Robot(initialGridPosition, Orientation.SOUTH);
 
-    robot.turnLeft();
+        robot.turnLeft();
 
-    Orientation expectedOrientation = Orientation.NORTH;
-    assertEquals(initialGridPosition, robot.getGridPosition());
-    assertEquals(expectedOrientation, robot.getOrientation());
-  }
+        Orientation expectedOrientation = Orientation.EAST;
+        assertThat(robot.getGridPosition()).isEqualTo(initialGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(expectedOrientation);
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void increasesTheYCoordinateOneWhenFacingNorth() {
-    Orientation initialOrientation = Orientation.NORTH;
-    Robot robot = new Robot(new GridPosition(0, 0), initialOrientation);
+    @Test
+    public void changesEastToNorth() {
+        GridPosition initialGridPosition = new GridPosition(0, 0);
+        Robot robot = new Robot(initialGridPosition, Orientation.EAST);
 
-    robot.advance();
+        robot.turnLeft();
 
-    GridPosition expectedGridPosition = new GridPosition(0, 1);
-    assertEquals(expectedGridPosition, robot.getGridPosition());
-    assertEquals(initialOrientation, robot.getOrientation());
-  }
+        Orientation expectedOrientation = Orientation.NORTH;
+        assertThat(robot.getGridPosition()).isEqualTo(initialGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(expectedOrientation);
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void decreasesTheYCoordinateByOneWhenFacingSouth() {
-    Orientation initialOrientation = Orientation.SOUTH;
-    Robot robot = new Robot(new GridPosition(0, 0), initialOrientation);
+    /* Moving forward one */
 
-    robot.advance();
+    @Test
+    public void facingNorthIncrementsY() {
+        Orientation initialOrientation = Orientation.NORTH;
+        Robot robot = new Robot(new GridPosition(0, 0), initialOrientation);
 
-    GridPosition expectedGridPosition = new GridPosition(0, -1);
-    assertEquals(expectedGridPosition, robot.getGridPosition());
-    assertEquals(initialOrientation, robot.getOrientation());
-  }
+        robot.advance();
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void increasesTheXCoordinateByOneWhenFacingEast() {
-    Orientation initialOrientation = Orientation.EAST;
-    Robot robot = new Robot(new GridPosition(0, 0), initialOrientation);
+        GridPosition expectedGridPosition = new GridPosition(0, 1);
+        assertThat(robot.getGridPosition()).isEqualTo(expectedGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(initialOrientation);
+    }
 
-    robot.advance();
+    @Test
+    public void facingSouthDecrementsY() {
+        Orientation initialOrientation = Orientation.SOUTH;
+        Robot robot = new Robot(new GridPosition(0, 0), initialOrientation);
 
-    GridPosition expectedGridPosition = new GridPosition(1, 0);
-    assertEquals(expectedGridPosition, robot.getGridPosition());
-    assertEquals(initialOrientation, robot.getOrientation());
-  }
+        robot.advance();
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void decreasesTheXCoordinateByOneWhenFacingWest() {
-    Orientation initialOrientation = Orientation.WEST;
-    Robot robot = new Robot(new GridPosition(0, 0), initialOrientation);
+        GridPosition expectedGridPosition = new GridPosition(0, -1);
+        assertThat(robot.getGridPosition()).isEqualTo(expectedGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(initialOrientation);
+    }
 
-    robot.advance();
+    @Test
+    public void facingEastIncrementsX() {
+        Orientation initialOrientation = Orientation.EAST;
+        Robot robot = new Robot(new GridPosition(0, 0), initialOrientation);
 
-    GridPosition expectedGridPosition = new GridPosition(-1, 0);
-    assertEquals(expectedGridPosition, robot.getGridPosition());
-    assertEquals(initialOrientation, robot.getOrientation());
-  }
+        robot.advance();
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void instructionsStartingNorthAndMoveEastAndNorth() {
-    Robot robot = new Robot(new GridPosition(7, 3), Orientation.NORTH);
+        GridPosition expectedGridPosition = new GridPosition(1, 0);
+        assertThat(robot.getGridPosition()).isEqualTo(expectedGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(initialOrientation);
+    }
 
-    robot.simulate("RAALAL");
+    @Test
+    public void facingWestDecrementsX() {
+        Orientation initialOrientation = Orientation.WEST;
+        Robot robot = new Robot(new GridPosition(0, 0), initialOrientation);
 
-    GridPosition expectedGridPosition = new GridPosition(9, 4);
-    Orientation expectedOrientation = Orientation.WEST;
+        robot.advance();
 
-    assertEquals(expectedGridPosition, robot.getGridPosition());
-    assertEquals(expectedOrientation, robot.getOrientation());
-  }
+        GridPosition expectedGridPosition = new GridPosition(-1, 0);
+        assertThat(robot.getGridPosition()).isEqualTo(expectedGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(initialOrientation);
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void instructionsToMoveWestAndNorth() {
-    Robot robot = new Robot(new GridPosition(0, 0), Orientation.NORTH);
+    /* Follow series of instructions */
 
-    robot.simulate("LAAARALA");
+    @Test
+    public void movingEastAndNorthFromReadme() {
+        Robot robot = new Robot(new GridPosition(7, 3), Orientation.NORTH);
 
-    GridPosition expectedGridPosition = new GridPosition(-4, 1);
-    Orientation expectedOrientation = Orientation.WEST;
+        robot.simulate("RAALAL");
 
-    assertEquals(expectedGridPosition, robot.getGridPosition());
-    assertEquals(expectedOrientation, robot.getOrientation());
-  }
+        GridPosition expectedGridPosition = new GridPosition(9, 4);
+        Orientation expectedOrientation = Orientation.WEST;
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void instructionsToMoveWestAndSouth() {
-    Robot robot = new Robot(new GridPosition(2, -7), Orientation.EAST);
+        assertThat(robot.getGridPosition()).isEqualTo(expectedGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(expectedOrientation);
+    }
 
-    robot.simulate("RRAAAAALA");
+    @Test
+    public void movingWestAndNorth() {
+        Robot robot = new Robot(new GridPosition(0, 0), Orientation.NORTH);
 
-    GridPosition expectedGridPosition = new GridPosition(-3, -8);
-    Orientation expectedOrientation = Orientation.SOUTH;
+        robot.simulate("LAAARALA");
 
-    assertEquals(expectedGridPosition, robot.getGridPosition());
-    assertEquals(expectedOrientation, robot.getOrientation());
-  }
+        GridPosition expectedGridPosition = new GridPosition(-4, 1);
+        Orientation expectedOrientation = Orientation.WEST;
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void instructionsStartingSouthAndMoveEastAndNorth() {
-    Robot robot = new Robot(new GridPosition(8, 4), Orientation.SOUTH);
+        assertThat(robot.getGridPosition()).isEqualTo(expectedGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(expectedOrientation);
+    }
 
-    robot.simulate("LAAARRRALLLL");
+    @Test
+    public void movingWestAndSouth() {
+        Robot robot = new Robot(new GridPosition(2, -7), Orientation.EAST);
 
-    GridPosition expectedGridPosition = new GridPosition(11, 5);
-    Orientation expectedOrientation = Orientation.NORTH;
+        robot.simulate("RRAAAAALA");
 
-    assertEquals(expectedGridPosition, robot.getGridPosition());
-    assertEquals(expectedOrientation, robot.getOrientation());
-  }
+        GridPosition expectedGridPosition = new GridPosition(-3, -8);
+        Orientation expectedOrientation = Orientation.SOUTH;
+
+        assertThat(robot.getGridPosition()).isEqualTo(expectedGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(expectedOrientation);
+    }
+
+    @Test
+    public void movingEastAndNorth() {
+        Robot robot = new Robot(new GridPosition(8, 4), Orientation.SOUTH);
+
+        robot.simulate("LAAARRRALLLL");
+
+        GridPosition expectedGridPosition = new GridPosition(11, 5);
+        Orientation expectedOrientation = Orientation.NORTH;
+
+        assertThat(robot.getGridPosition()).isEqualTo(expectedGridPosition);
+        assertThat(robot.getOrientation()).isEqualTo(expectedOrientation);
+    }
+
 }
