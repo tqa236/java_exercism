@@ -1,10 +1,11 @@
 class CustomUncheckedException extends RuntimeException {
 
-  CustomUncheckedException() {
-    throw new UnsupportedOperationException("This is the detail message.");
-  }
+    CustomUncheckedException() {
+        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    }
 
-  CustomUncheckedException(String message) {
-    throw new UnsupportedOperationException("This is the detail message.");
-  }
+    CustomUncheckedException(String message) {
+        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    }
+
 }

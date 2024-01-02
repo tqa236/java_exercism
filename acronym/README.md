@@ -1,39 +1,58 @@
 # Acronym
 
+Welcome to Acronym on Exercism's Java Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
+
+## Instructions
+
 Convert a phrase to its acronym.
 
 Techies love their TLA (Three Letter Acronyms)!
 
-Help generate some jargon by writing a program that converts a long name
-like Portable Network Graphics to its acronym (PNG).
+Help generate some jargon by writing a program that converts a long name like Portable Network Graphics to its acronym (PNG).
 
-## Setup
+Punctuation is handled as follows: hyphens are word separators (like whitespace); all other punctuation can be removed from the input.
 
-Go through the setup instructions for Java to install the necessary
-dependencies:
+For example:
 
-[https://exercism.io/tracks/java/installation](https://exercism.io/tracks/java/installation)
-
-# Running the tests
-
-You can run all the tests for an exercise by entering the following in your
-terminal:
-
-```sh
-$ gradle test
-```
-
-> Use `gradlew.bat` if you're on Windows
-
-In the test suites all tests but the first have been skipped.
-
-Once you get a test passing, you can enable the next one by removing the
-`@Ignore("Remove to run test")` annotation.
+| Input                     | Output |
+| ------------------------- | ------ |
+| As Soon As Possible       | ASAP   |
+| Liquid-crystal display    | LCD    |
+| Thank George It's Friday! | TGIF   |
 
 ## Source
 
-Julien Vanier [https://github.com/monkbroc](https://github.com/monkbroc)
+### Created by
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have
-completed the exercise.
+- @matthewmorgan
+
+### Contributed to by
+
+- @aadityakulkarni
+- @FridaTveit
+- @jmrunkle
+- @jtigger
+- @kytrinyx
+- @lemoncurry
+- @miranikaran01
+- @mirkoperillo
+- @moaxcp
+- @msomji
+- @muzimuzhi
+- @rohit1104
+- @sjwarner-bp
+- @SleeplessByte
+- @Smarticles101
+- @sshine
+- @stkent
+- @TimoleonLatinopoulos
+- @vasouv
+- @victorvess
+- @vivshaw
+- @Zaldrick
+- @Zhiyuan-Amos
+
+### Based on
+
+Julien Vanier - https://github.com/monkbroc

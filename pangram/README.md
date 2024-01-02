@@ -1,40 +1,61 @@
 # Pangram
 
-Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan gramma,
-"every letter") is a sentence using every letter of the alphabet at least once.
+Welcome to Pangram on Exercism's Java Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
+
+## Introduction
+
+You work for a company that sells fonts through their website.
+They'd like to show a different sentence each time someone views a font on their website.
+To give a comprehensive sense of the font, the random sentences should use **all** the letters in the English alphabet.
+
+They're running a competition to get suggestions for sentences that they can use.
+You're in charge of checking the submissions to see if they are valid.
+
+~~~~exercism/note
+Pangram comes from Greek, παν γράμμα, pan gramma, which means "every letter".
+
 The best known English pangram is:
+
 > The quick brown fox jumps over the lazy dog.
+~~~~
 
-The alphabet used consists of ASCII letters `a` to `z`, inclusive, and is case
-insensitive. Input will not contain non-ASCII symbols.
+## Instructions
 
-## Setup
+Your task is to figure out if a sentence is a pangram.
 
-Go through the setup instructions for Java to install the necessary
-dependencies:
+A pangram is a sentence using every letter of the alphabet at least once.
+It is case insensitive, so it doesn't matter if a letter is lower-case (e.g. `k`) or upper-case (e.g. `K`).
 
-[https://exercism.io/tracks/java/installation](https://exercism.io/tracks/java/installation)
-
-# Running the tests
-
-You can run all the tests for an exercise by entering the following in your
-terminal:
-
-```sh
-$ gradle test
-```
-
-> Use `gradlew.bat` if you're on Windows
-
-In the test suites all tests but the first have been skipped.
-
-Once you get a test passing, you can enable the next one by removing the
-`@Ignore("Remove to run test")` annotation.
+For this exercise, a sentence is a pangram if it contains each of the 26 letters in the English alphabet.
 
 ## Source
 
-Wikipedia [https://en.wikipedia.org/wiki/Pangram](https://en.wikipedia.org/wiki/Pangram)
+### Created by
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have
-completed the exercise.
+- @matthewmorgan
+
+### Contributed to by
+
+- @barisozcanli
+- @FridaTveit
+- @IpshitaC
+- @javaeeeee
+- @jmrunkle
+- @jtigger
+- @kytrinyx
+- @lemoncurry
+- @michaelspets
+- @morrme
+- @msomji
+- @muzimuzhi
+- @sjwarner-bp
+- @SleeplessByte
+- @Smarticles101
+- @sshine
+- @stkent
+- @Zaldrick
+
+### Based on
+
+Wikipedia - https://en.wikipedia.org/wiki/Pangram

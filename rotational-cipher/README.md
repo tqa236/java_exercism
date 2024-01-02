@@ -1,12 +1,15 @@
 # Rotational Cipher
 
+Welcome to Rotational Cipher on Exercism's Java Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
+
+## Instructions
+
 Create an implementation of the rotational cipher, also sometimes called the Caesar cipher.
 
-The Caesar cipher is a simple shift cipher that relies on
-transposing all the letters in the alphabet using an integer key
-between `0` and `26`. Using a key of `0` or `26` will always yield
-the same output due to modular arithmetic. The letter is shifted
-for as many values as the value of the key.
+The Caesar cipher is a simple shift cipher that relies on transposing all the letters in the alphabet using an integer key between `0` and `26`.
+Using a key of `0` or `26` will always yield the same output due to modular arithmetic.
+The letter is shifted for as many values as the value of the key.
 
 The general notation for rotational ciphers is `ROT + <key>`.
 The most commonly used rotational cipher is `ROT13`.
@@ -24,26 +27,33 @@ Ciphertext is written out in the same formatting as the input including spaces a
 
 ## Examples
 
-- ROT5  `omg` gives `trl`
-- ROT0  `c` gives `c`
+- ROT5 `omg` gives `trl`
+- ROT0 `c` gives `c`
 - ROT26 `Cool` gives `Cool`
 - ROT13 `The quick brown fox jumps over the lazy dog.` gives `Gur dhvpx oebja sbk whzcf bire gur ynml qbt.`
 - ROT13 `Gur dhvpx oebja sbk whzcf bire gur ynml qbt.` gives `The quick brown fox jumps over the lazy dog.`
 
-# Running the tests
-
-You can run all the tests for an exercise by entering
-
-```sh
-$ gradle test
-```
-
-in your terminal.
-
 ## Source
 
-Wikipedia [https://en.wikipedia.org/wiki/Caesar_cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
+### Created by
 
-## Submitting Incomplete Solutions
+- @LeonDsouza
 
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+### Contributed to by
+
+- @c-thornton
+- @FridaTveit
+- @jmrunkle
+- @kytrinyx
+- @lemoncurry
+- @msomji
+- @muzimuzhi
+- @sjwarner-bp
+- @SleeplessByte
+- @Smarticles101
+- @sshine
+- @stkent
+
+### Based on
+
+Wikipedia - https://en.wikipedia.org/wiki/Caesar_cipher

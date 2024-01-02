@@ -1,29 +1,18 @@
-import java.util.HashMap;
+import java.util.*;
 
 class ResistorColor {
-  private static final HashMap<String, Integer> values = new HashMap<String, Integer>();
+    private static final HashMap<String, Integer> values = new HashMap<String, Integer>(){{
+      put("black", 0); put("brown", 1); put("red", 2); put("orange", 3);
+      put("yellow", 4); put("green", 5); put("blue", 6); put("violet", 7);
+      put("grey", 8); put("white", 9);
+    }};
 
-  static {
-    values.put("black", 0);
-    values.put("brown", 1);
-    values.put("red", 2);
-    values.put("orange", 3);
-    values.put("yellow", 4);
-    values.put("green", 5);
-    values.put("blue", 6);
-    values.put("violet", 7);
-    values.put("grey", 8);
-    values.put("white", 9);
-  }
+    int colorCode(String color) {
+        return values.get(color);
+    }
 
-  public int colorCode(String color) {
-    return values.get(color);
-  }
-
-  public String[] colors() {
-    String[] allColors = {
-      "black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"
-    };
-    return allColors;
-  }
+    String[] colors() {
+        String[] all_colors = {"black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"};
+        return all_colors;
+    }
 }

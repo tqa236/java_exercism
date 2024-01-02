@@ -1,5 +1,3 @@
 enum Player {
-  NONE,
-  BLACK,
-  WHITE
+    NONE, BLACK, WHITE
 }

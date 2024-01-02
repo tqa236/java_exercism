@@ -1,3 +1,7 @@
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -6,15 +10,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Rule;
-import org.junit.rules.ExpectedException;
-
 public class GoCountingTest {
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
 
     String board5x5 = "  B  \n" +
                       " B B \n" +
@@ -35,7 +31,7 @@ public class GoCountingTest {
         assertEquals(territory, gocounting.getTerritory(0, 1));
     }
 
-    // @Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void whiteCenter5x5BoardTest() {
         GoCounting gocounting = new GoCounting(board5x5);
@@ -47,7 +43,7 @@ public class GoCountingTest {
         assertEquals(territory, gocounting.getTerritory(2, 3));
     }
 
-    // @Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void openCorner5x5BoardTest() {
         GoCounting gocounting = new GoCounting(board5x5);
@@ -61,7 +57,7 @@ public class GoCountingTest {
         assertEquals(territory, gocounting.getTerritory(1, 4));
     }
 
-    // @Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void stoneNotTerritory5x5Board() {
         GoCounting gocounting = new GoCounting(board5x5);
@@ -72,51 +68,59 @@ public class GoCountingTest {
         assertEquals(territory, gocounting.getTerritory(1, 1));
     }
 
-    // @Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void invalidXTooLow5x5Board() {
         GoCounting gocounting = new GoCounting(board5x5);
 
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Invalid coordinate");
+        IllegalArgumentException expected =
+            assertThrows(
+                IllegalArgumentException.class,
+                () -> gocounting.getTerritory(-1, 1));
 
-        gocounting.getTerritory(-1, 1);
+        assertThat(expected).hasMessage("Invalid coordinate");
     }
 
-    // @Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void invalidXTooHigh5x5Board() {
         GoCounting gocounting = new GoCounting(board5x5);
 
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Invalid coordinate");
+        IllegalArgumentException expected =
+            assertThrows(
+                IllegalArgumentException.class,
+                () -> gocounting.getTerritory(5, 1));
 
-        gocounting.getTerritory(5, 1);
+        assertThat(expected).hasMessage("Invalid coordinate");
     }
 
-    // @Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void invalidYTooLow5x5Board() {
         GoCounting gocounting = new GoCounting(board5x5);
 
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Invalid coordinate");
+        IllegalArgumentException expected =
+            assertThrows(
+                IllegalArgumentException.class,
+                () -> gocounting.getTerritory(1, -1));
 
-        gocounting.getTerritory(1, -1);
+        assertThat(expected).hasMessage("Invalid coordinate");
     }
 
-    // @Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void invalidYTooHigh5x5Board() {
         GoCounting gocounting = new GoCounting(board5x5);
 
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Invalid coordinate");
+        IllegalArgumentException expected =
+            assertThrows(
+                IllegalArgumentException.class,
+                () -> gocounting.getTerritory(1, 5));
 
-        gocounting.getTerritory(1, 5);
+        assertThat(expected).hasMessage("Invalid coordinate");
     }
 
-    // @Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void oneTerritoryIsWholeBoardTest() {
         GoCounting gocounting = new GoCounting(" ");
@@ -134,7 +138,7 @@ public class GoCountingTest {
         assertEquals(territories, gocounting.getTerritories());
     }
 
-    // @Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void twoTerritoryRectangularBoardTest() {
         GoCounting gocounting = new GoCounting(" BW \n BW ");
@@ -157,7 +161,7 @@ public class GoCountingTest {
         assertEquals(territories, gocounting.getTerritories());
     }
 
-    // @Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void twoRegionRectangularBoardTest() {
         GoCounting gocounting = new GoCounting(" B ");

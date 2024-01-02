@@ -1,144 +1,146 @@
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PigLatinTranslatorTest {
 
-  private PigLatinTranslator pigLatinTranslator;
+    private PigLatinTranslator pigLatinTranslator;
 
-  @Before
-  public void setup() {
-    pigLatinTranslator = new PigLatinTranslator();
-  }
+    @Before
+    public void setup() {
+        pigLatinTranslator = new PigLatinTranslator();
+    }
 
-  @Test
-  public void testWordBeginningWithA() {
-    assertEquals("appleay", pigLatinTranslator.translate("apple"));
-  }
+    @Test
+    public void testWordBeginningWithA() {
+        assertThat(pigLatinTranslator.translate("apple")).isEqualTo("appleay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testWordBeginningWithE() {
-    assertEquals("earay", pigLatinTranslator.translate("ear"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testWordBeginningWithE() {
+        assertThat(pigLatinTranslator.translate("ear")).isEqualTo("earay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testWordBeginningWithI() {
-    assertEquals("iglooay", pigLatinTranslator.translate("igloo"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testWordBeginningWithI() {
+        assertThat(pigLatinTranslator.translate("igloo")).isEqualTo("iglooay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testWordBeginningWithO() {
-    assertEquals("objectay", pigLatinTranslator.translate("object"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testWordBeginningWithO() {
+        assertThat(pigLatinTranslator.translate("object")).isEqualTo("objectay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testWordBeginningWithU() {
-    assertEquals("underay", pigLatinTranslator.translate("under"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testWordBeginningWithU() {
+        assertThat(pigLatinTranslator.translate("under")).isEqualTo("underay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testWordBeginningWithVowelAndFollowedByQu() {
-    assertEquals("equalay", pigLatinTranslator.translate("equal"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testWordBeginningWithVowelAndFollowedByQu() {
+        assertThat(pigLatinTranslator.translate("equal")).isEqualTo("equalay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testWordBeginningWithP() {
-    assertEquals("igpay", pigLatinTranslator.translate("pig"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testWordBeginningWithP() {
+        assertThat(pigLatinTranslator.translate("pig")).isEqualTo("igpay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testWordBeginningWithK() {
-    assertEquals("oalakay", pigLatinTranslator.translate("koala"));
-  }
-  // @Ignore("Remove to run test")
-  @Test
-  public void testWordBeginningWithX() {
-    assertEquals("enonxay", pigLatinTranslator.translate("xenon"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testWordBeginningWithK() {
+        assertThat(pigLatinTranslator.translate("koala")).isEqualTo("oalakay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testWordBeginningWithQWithoutAFollowingU() {
-    assertEquals("atqay", pigLatinTranslator.translate("qat"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testWordBeginningWithX() {
+        assertThat(pigLatinTranslator.translate("xenon")).isEqualTo("enonxay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testChTreatedLikeAConsonantAtTheBeginningOfAWord() {
-    assertEquals("airchay", pigLatinTranslator.translate("chair"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testWordBeginningWithQWithoutAFollowingU() {
+        assertThat(pigLatinTranslator.translate("qat")).isEqualTo("atqay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testQuTreatedLikeAConsonantAtTheBeginningOfAWord() {
-    assertEquals("eenquay", pigLatinTranslator.translate("queen"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testChTreatedLikeAConsonantAtTheBeginningOfAWord() {
+        assertThat(pigLatinTranslator.translate("chair")).isEqualTo("airchay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testQuAndAPrecedingConsonantTreatedLikeAConsonantAtTheBeginningOfAWord() {
-    assertEquals("aresquay", pigLatinTranslator.translate("square"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testQuTreatedLikeAConsonantAtTheBeginningOfAWord() {
+        assertThat(pigLatinTranslator.translate("queen")).isEqualTo("eenquay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testThTreatedLikeAConsonantAtTheBeginningOfAWord() {
-    assertEquals("erapythay", pigLatinTranslator.translate("therapy"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testQuAndAPrecedingConsonantTreatedLikeAConsonantAtTheBeginningOfAWord() {
+        assertThat(pigLatinTranslator.translate("square")).isEqualTo("aresquay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testThrTreatedLikeAConsonantAtTheBeginningOfAWord() {
-    assertEquals("ushthray", pigLatinTranslator.translate("thrush"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testThTreatedLikeAConsonantAtTheBeginningOfAWord() {
+        assertThat(pigLatinTranslator.translate("therapy")).isEqualTo("erapythay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testSchTreatedLikeAConsonantAtTheBeginningOfAWord() {
-    assertEquals("oolschay", pigLatinTranslator.translate("school"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testThrTreatedLikeAConsonantAtTheBeginningOfAWord() {
+        assertThat(pigLatinTranslator.translate("thrush")).isEqualTo("ushthray");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testYtTreatedLikeAConsonantAtTheBeginningOfAWord() {
-    assertEquals("yttriaay", pigLatinTranslator.translate("yttria"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testSchTreatedLikeAConsonantAtTheBeginningOfAWord() {
+        assertThat(pigLatinTranslator.translate("school")).isEqualTo("oolschay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testXrTreatedLikeAConsonantAtTheBeginningOfAWord() {
-    assertEquals("xrayay", pigLatinTranslator.translate("xray"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testYtTreatedLikeAVowelAtTheBeginningOfAWord() {
+        assertThat(pigLatinTranslator.translate("yttria")).isEqualTo("yttriaay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testYTreatedLikeAConsonantAtTheBeginningOfAWord() {
-    assertEquals("ellowyay", pigLatinTranslator.translate("yellow"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testXrTreatedLikeAVowelAtTheBeginningOfAWord() {
+        assertThat(pigLatinTranslator.translate("xray")).isEqualTo("xrayay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testYTreatedLikeAVowelAtTheEndOfAConsonantCluster() {
-    assertEquals("ythmrhay", pigLatinTranslator.translate("rhythm"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testYTreatedLikeAConsonantAtTheBeginningOfAWord() {
+        assertThat(pigLatinTranslator.translate("yellow")).isEqualTo("ellowyay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testYAsSecondLetterInTwoLetterWord() {
-    assertEquals("ymay", pigLatinTranslator.translate("my"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testYTreatedLikeAVowelAtTheEndOfAConsonantCluster() {
+        assertThat(pigLatinTranslator.translate("rhythm")).isEqualTo("ythmrhay");
+    }
 
-  // @Ignore("Remove to run test")
-  @Test
-  public void testAWholePhrase() {
-    assertEquals("ickquay astfay unray", pigLatinTranslator.translate("quick fast run"));
-  }
+    @Ignore("Remove to run test")
+    @Test
+    public void testYAsSecondLetterInTwoLetterWord() {
+        assertThat(pigLatinTranslator.translate("my")).isEqualTo("ymay");
+    }
+
+    @Ignore("Remove to run test")
+    @Test
+    public void testAWholePhrase() {
+        assertThat(pigLatinTranslator.translate("quick fast run")).isEqualTo("ickquay astfay unray");
+    }
 }
