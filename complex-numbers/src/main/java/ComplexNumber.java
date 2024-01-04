@@ -11,7 +11,7 @@ class ComplexNumber {
     return real;
   }
 
-  public double getImag() {
+  public double getImaginary() {
     return imaginary;
   }
 
@@ -19,17 +19,17 @@ class ComplexNumber {
     return new ComplexNumber(real + other.real, imaginary + other.imaginary);
   }
 
-  public ComplexNumber minus(ComplexNumber other) {
+  public ComplexNumber subtract(ComplexNumber other) {
     return new ComplexNumber(real - other.real, imaginary - other.imaginary);
   }
 
-  public ComplexNumber times(ComplexNumber other) {
+  public ComplexNumber multiply(ComplexNumber other) {
     return new ComplexNumber(
         real * other.real - imaginary * other.imaginary,
         imaginary * other.real + real * other.imaginary);
   }
 
-  public ComplexNumber div(ComplexNumber other) {
+  public ComplexNumber divide(ComplexNumber other) {
     double denominator = Math.pow(other.abs(), 2);
     return new ComplexNumber(
         (real * other.real + imaginary * other.imaginary) / denominator,
