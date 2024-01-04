@@ -1,10 +1,24 @@
-/*
+class Bob {
 
-Since this exercise has a difficulty of > 4 it doesn't come
-with any starter implementation.
-This is so that you get to practice creating classes and methods
-which is an important part of programming in Java.
+    String hey(String input) {
+        input = input.trim();
+        if (input.equals("")) {
+            return "Fine. Be that way!";
+        }
+        boolean isQuestion = input.endsWith("?");
+        boolean containsLetter = input.chars().anyMatch(Character::isLetter);
+        boolean isYell = containsLetter && input.equals(input.toUpperCase());
 
-Please remove this comment when submitting your solution.
+        if (isQuestion && isYell) {
+            return "Calm down, I know what I'm doing!";
+        }
+        if (isQuestion) {
+            return "Sure.";
+        }
+        if (isYell) {
+            return "Whoa, chill out!";
+        }
+        return "Whatever.";
+    }
 
-*/
+}
