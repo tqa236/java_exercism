@@ -4,7 +4,7 @@ public class Lasagna {
     }
 
     public int remainingMinutesInOven(int active_time) {
-        return 40 - active_time;
+        return expectedMinutesInOven() - active_time;
     }
 
     public int preparationTimeInMinutes(int layer) {
