@@ -1,5 +1,5 @@
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.withPrecision;
@@ -30,6 +30,7 @@ public class ComplexNumberTest {
         assertDoublesEqual(expected, actual, "real");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testRealPartOfPurelyImaginaryNumber() {
         double expected = 0.0;
@@ -37,6 +38,7 @@ public class ComplexNumberTest {
         assertDoublesEqual(expected, actual, "real");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testRealPartOfNumberWithRealAndImaginaryParts() {
         double expected = 1.0;
@@ -44,6 +46,7 @@ public class ComplexNumberTest {
         assertDoublesEqual(expected, actual, "real");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testImaginaryPartOfPurelyRealNumber() {
         double expected = 0.0;
@@ -51,6 +54,7 @@ public class ComplexNumberTest {
         assertDoublesEqual(expected, actual, "imaginary");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testImaginaryPartOfPurelyImaginaryNumber() {
         double expected = 1.0;
@@ -58,6 +62,7 @@ public class ComplexNumberTest {
         assertDoublesEqual(expected, actual, "imaginary");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testImaginaryPartOfNumberWithRealAndImaginaryParts() {
         double expected = 2.0;
@@ -65,6 +70,7 @@ public class ComplexNumberTest {
         assertDoublesEqual(expected, actual, "imaginary");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testImaginaryUnitExhibitsDefiningProperty() {
         ComplexNumber expected = new ComplexNumber(-1.0, 0);
@@ -72,6 +78,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testAdditionWithPurelyRealNumbers() {
         ComplexNumber expected = new ComplexNumber(3.0, 0);
@@ -79,6 +86,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testAdditionWithPurelyImaginaryNumbers() {
         ComplexNumber expected = new ComplexNumber(0, 3.0);
@@ -86,6 +94,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testAdditionWithRealAndImaginaryParts() {
         ComplexNumber expected = new ComplexNumber(4.0, 6.0);
@@ -93,6 +102,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testSubtractionWithPurelyRealNumbers() {
         ComplexNumber expected = new ComplexNumber(-1.0, 0.0);
@@ -100,6 +110,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testSubtractionWithPurelyImaginaryNumbers() {
         ComplexNumber expected = new ComplexNumber(0, -1.0);
@@ -107,6 +118,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testSubtractionWithRealAndImaginaryParts() {
         ComplexNumber expected = new ComplexNumber(-2.0, -2.0);
@@ -114,6 +126,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testMultiplicationWithPurelyRealNumbers() {
         ComplexNumber expected = new ComplexNumber(2.0, 0);
@@ -121,6 +134,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testMultiplicationWithPurelyImaginaryNumbers() {
         ComplexNumber expected = new ComplexNumber(-2.0, 0);
@@ -128,6 +142,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testMultiplicationWithRealAndImaginaryParts() {
         ComplexNumber expected = new ComplexNumber(-5.0, 10.0);
@@ -135,6 +150,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testDivisionWithPurelyRealNumbers() {
         ComplexNumber expected = new ComplexNumber(0.5, 0);
@@ -142,6 +158,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testDivisionWithPurelyImaginaryNumbers() {
         ComplexNumber expected = new ComplexNumber(0.5, 0);
@@ -149,6 +166,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testDivisionWithRealAndImaginaryParts() {
         ComplexNumber expected = new ComplexNumber(0.44, 0.08);
@@ -156,6 +174,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testAbsoluteValueOfPositivePurelyRealNumber() {
         double expected = 5.0;
@@ -163,6 +182,7 @@ public class ComplexNumberTest {
         assertDoublesEqual(expected, actual, "real");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testAbsoluteValueOfNegativePurelyRealNumber() {
         double expected = 5.0;
@@ -170,6 +190,7 @@ public class ComplexNumberTest {
         assertDoublesEqual(expected, actual, "real");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testAbsoluteValueOfPurelyImaginaryNumberWithPositiveImaginaryPart() {
         double expected = 5.0;
@@ -177,6 +198,7 @@ public class ComplexNumberTest {
         assertDoublesEqual(expected, actual, "real");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testAbsoluteValueOfPurelyImaginaryNumberWithNegativeImaginaryPart() {
         double expected = 5.0;
@@ -184,6 +206,7 @@ public class ComplexNumberTest {
         assertDoublesEqual(expected, actual, "real");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testAbsoluteValueOfNumberWithRealAndImaginaryParts() {
         double expected = 5.0;
@@ -191,6 +214,7 @@ public class ComplexNumberTest {
         assertDoublesEqual(expected, actual, "real");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testConjugationOfPurelyRealNumber() {
         ComplexNumber expected = new ComplexNumber(5.0, 0);
@@ -198,6 +222,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testConjugationOfPurelyImaginaryNumber() {
         ComplexNumber expected = new ComplexNumber(0, -5.0);
@@ -205,6 +230,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testConjugationOfNumberWithRealAndImaginaryParts() {
         ComplexNumber expected = new ComplexNumber(1.0, -1.0);
@@ -212,6 +238,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testExponentialOfPurelyImaginaryNumber() {
         ComplexNumber expected = new ComplexNumber(-1.0, 0);
@@ -219,6 +246,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testExponentialOfZero() {
         ComplexNumber expected = new ComplexNumber(1.0, 0);
@@ -226,6 +254,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testExponentialOfPurelyRealNumber() {
         ComplexNumber expected = new ComplexNumber(Math.E, 0);
@@ -233,6 +262,7 @@ public class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testExponentialOfNumberWithRealAndImaginaryParts() {
         ComplexNumber expected = new ComplexNumber(1, 1);

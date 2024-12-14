@@ -1,177 +1,190 @@
-import org.junit.Test;
-import org.junit.Ignore;
-import org.junit.Before;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.BeforeEach;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class BobTest {
     private Bob bob;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         bob = new Bob();
     }
 
     @Test
     public void saySomething() {
-        assertEquals(
-                "Whatever.",
-                bob.hey("Tom-ay-to, tom-aaaah-to."));
+        assertThat(bob.hey("Tom-ay-to, tom-aaaah-to."))
+                .isEqualTo("Whatever.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void shouting() {
-        assertEquals(
-                "Whoa, chill out!",
-                bob.hey("WATCH OUT!"));
+        assertThat(bob.hey("WATCH OUT!"))
+                .isEqualTo("Whoa, chill out!");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void shoutingGibberish() {
-        assertEquals(
-                "Whoa, chill out!",
-                bob.hey("FCECDFCAAB"));
+        assertThat(bob.hey("FCECDFCAAB"))
+                .isEqualTo("Whoa, chill out!");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void askingAQuestion() {
-        assertEquals(
-                "Sure.",
-                bob.hey("Does this cryogenic chamber make me look fat?"));
+        assertThat(bob.hey("Does this cryogenic chamber make me look fat?"))
+                .isEqualTo("Sure.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void askingANumericQuestion() {
-        assertEquals(
-                "Sure.",
-                bob.hey("You are, what, like 15?"));
+        assertThat(bob.hey("You are, what, like 15?"))
+                .isEqualTo("Sure.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void askingGibberish() {
-        assertEquals(
-                "Sure.",
-                bob.hey("fffbbcbeab?"));
+        assertThat(bob.hey("fffbbcbeab?"))
+                .isEqualTo("Sure.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void talkingForcefully() {
-        assertEquals(
-                "Whatever.",
-                bob.hey("Hi there!"));
+        assertThat(bob.hey("Hi there!"))
+                .isEqualTo("Whatever.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void usingAcronymsInRegularSpeech() {
-        assertEquals(
-                "Whatever.", bob.hey("It's OK if you don't want to go work for NASA."));
+        assertThat(bob.hey("It's OK if you don't want to go work for NASA."))
+                .isEqualTo("Whatever.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void forcefulQuestions() {
-        assertEquals(
-                "Calm down, I know what I'm doing!", bob.hey("WHAT'S GOING ON?"));
+        assertThat(bob.hey("WHAT'S GOING ON?"))
+                .isEqualTo("Calm down, I know what I'm doing!");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void shoutingNumbers() {
-        assertEquals(
-                "Whoa, chill out!", bob.hey("1, 2, 3 GO!"));
+        assertThat(bob.hey("1, 2, 3 GO!"))
+                .isEqualTo("Whoa, chill out!");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void onlyNumbers() {
-        assertEquals(
-                "Whatever.", bob.hey("1, 2, 3"));
+        assertThat(bob.hey("1, 2, 3"))
+                .isEqualTo("Whatever.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void questionWithOnlyNumbers() {
-        assertEquals(
-                "Sure.", bob.hey("4?"));
+        assertThat(bob.hey("4?"))
+                .isEqualTo("Sure.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void shoutingWithSpecialCharacters() {
-        assertEquals(
-                "Whoa, chill out!", bob.hey("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"));
+        assertThat(bob.hey("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"))
+                .isEqualTo("Whoa, chill out!");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void shoutingWithNoExclamationMark() {
-        assertEquals(
-                "Whoa, chill out!", bob.hey("I HATE THE DENTIST"));
+        assertThat(bob.hey("I HATE THE DENTIST"))
+                .isEqualTo("Whoa, chill out!");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void statementContainingQuestionMark() {
-        assertEquals(
-                "Whatever.", bob.hey("Ending with ? means a question."));
+        assertThat(bob.hey("Ending with ? means a question."))
+                .isEqualTo("Whatever.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void nonLettersWithQuestion() {
-        assertEquals(
-                "Sure.", bob.hey(":) ?"));
+        assertThat(bob.hey(":) ?"))
+                .isEqualTo("Sure.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void prattlingOn() {
-        assertEquals(
-                "Sure.", bob.hey("Wait! Hang on. Are you going to be OK?"));
+        assertThat(bob.hey("Wait! Hang on. Are you going to be OK?"))
+                .isEqualTo("Sure.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void silence() {
-        assertEquals(
-                "Fine. Be that way!", bob.hey(""));
+        assertThat(bob.hey(""))
+                .isEqualTo("Fine. Be that way!");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void prolongedSilence() {
-        assertEquals(
-                "Fine. Be that way!", bob.hey("          "));
+        assertThat(bob.hey("          "))
+                .isEqualTo("Fine. Be that way!");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void alternateSilence() {
-        assertEquals(
-                "Fine. Be that way!", bob.hey("\t\t\t\t\t\t\t\t\t\t"));
+        assertThat(bob.hey("\t\t\t\t\t\t\t\t\t\t"))
+                .isEqualTo("Fine. Be that way!");
     }
 
-    @Test
-    public void multipleLineQuestion() {
-        assertEquals(
-                "Whatever.",
-                bob.hey("\nDoes this cryogenic chamber make me look fat?\nNo."));
-    }
-
+    @Disabled("Remove to run test")
     @Test
     public void startingWithWhitespace() {
-        assertEquals(
-                "Whatever.",
-                bob.hey("         hmmmmmmm..."));
+        assertThat(bob.hey("         hmmmmmmm..."))
+                .isEqualTo("Whatever.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void endingWithWhiteSpace() {
-        assertEquals(
-                "Sure.",
-                bob.hey("Okay if like my  spacebar  quite a bit?   "));
+        assertThat(bob.hey("Okay if like my  spacebar  quite a bit?   "))
+                .isEqualTo("Sure.");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void otherWhiteSpace() {
-        assertEquals(
-                "Fine. Be that way!",
-                bob.hey("\n\r \t"));
+        assertThat(bob.hey("\n\r \t"))
+                .isEqualTo("Fine. Be that way!");
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void nonQuestionEndingWithWhiteSpace() {
-        assertEquals(
-                "Whatever.",
-                bob.hey("This is a statement ending with whitespace      "));
+        assertThat(bob.hey("This is a statement ending with whitespace      "))
+                .isEqualTo("Whatever.");
+    }
+
+    @Disabled("Remove to run test")
+    @Test
+    public void multipleLineQuestion() {
+        assertThat(bob.hey("\nDoes this cryogenic chamber make\n me look fat?"))
+                .isEqualTo("Sure.");
     }
 
 }
