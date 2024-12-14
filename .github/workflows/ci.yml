@@ -1,0 +1,43 @@
+# File: .github/workflows/ci.yml
+name: Java CI
+
+on:
+  push:
+    branches:
+      - main  # Run tests on pushes to the main branch
+  pull_request:
+    branches:
+      - main  # Run tests on pull requests targeting the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up JDK (Java Development Kit)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'  # Use the Eclipse Temurin distribution
+          java-version: '17'       # Specify Java version
+
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Build and test
+        run: |
+          for exercise in $(find . -name "gradlew" -exec dirname {} \;); do
+            echo "Running tests in $exercise"
+            cd $exercise
+            ./gradlew test
+            cd - # Return to the previous directory
+          done
