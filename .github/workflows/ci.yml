@@ -35,7 +35,7 @@ jobs:
 
       - name: Build and test
         run: |
-          for exercise in $(find . -name "build.gradle" -exec dirname {} \;); do
+          for exercise in $(find . -name "gradlew" -exec dirname {} \;); do
             echo "Running tests in $exercise"
             cd $exercise
             ./gradlew test
