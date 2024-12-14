@@ -1,5 +1,8 @@
 class CalculatorConundrum {
     public String calculate(int operand1, int operand2, String operation) {
+        if (operation == null) {
+            throw new IllegalArgumentException("Operation cannot be null");
+        }
         int result;
         switch (operation) {
             case "+":
@@ -21,8 +24,6 @@ class CalculatorConundrum {
             }
             case "":
                 throw new IllegalArgumentException("Operation cannot be empty");
-            case null:
-                throw new IllegalArgumentException("Operation cannot be null");
             default:
                 throw new IllegalOperationException(String.format("Operation '%s' does not exist", operation));
         }
