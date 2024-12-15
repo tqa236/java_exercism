@@ -1,127 +1,162 @@
-import java.util.List;
-import java.util.Arrays;
 
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class KindergartenGardenTest {
 
     @Test
     public void singleStudent() {
+        String garden = "RC\nGG";
         String student = "Alice";
-        String plants = "RC\nGG";
-        List<Plant> expected = Arrays.asList(Plant.RADISHES, Plant.CLOVER, Plant.GRASS, Plant.GRASS);
 
-        assertEquals(
-            expected,
-            new KindergartenGarden(plants).getPlantsOfStudent(student)
-        );
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.RADISHES, Plant.CLOVER, Plant.GRASS, Plant.GRASS);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void singleStudent2() {
+        String garden = "VC\nRC";
         String student = "Alice";
-        String plants = "VC\nRC";
-        List<Plant> expected = Arrays.asList(Plant.VIOLETS, Plant.CLOVER, Plant.RADISHES, Plant.CLOVER);
 
-        assertEquals(
-            expected,
-            new KindergartenGarden(plants).getPlantsOfStudent(student)
-        );
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.VIOLETS, Plant.CLOVER, Plant.RADISHES, Plant.CLOVER);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void twoStudents() {
+        String garden = "VVCG\nVVRC";
         String student = "Bob";
-        String plants = "VVCG\nVVRC";
-        List<Plant> expected = Arrays.asList(Plant.CLOVER, Plant.GRASS, Plant.RADISHES, Plant.CLOVER);
 
-        assertEquals(
-            expected,
-            new KindergartenGarden(plants).getPlantsOfStudent(student)
-        );
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.CLOVER, Plant.GRASS, Plant.RADISHES, Plant.CLOVER);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void oneGardenSecondStudent() {
+        String garden = "VVCCGG\nVVCCGG";
         String student = "Bob";
-        String plants = "VVCCGG\nVVCCGG";
-        List<Plant> expected = Arrays.asList(Plant.CLOVER, Plant.CLOVER, Plant.CLOVER, Plant.CLOVER);
 
-        assertEquals(
-            expected,
-            new KindergartenGarden(plants).getPlantsOfStudent(student)
-        );
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.CLOVER, Plant.CLOVER, Plant.CLOVER, Plant.CLOVER);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void oneGardenThirdStudent() {
+        String garden = "VVCCGG\nVVCCGG";
         String student = "Charlie";
-        String plants = "VVCCGG\nVVCCGG";
-        List<Plant> expected = Arrays.asList(Plant.GRASS, Plant.GRASS, Plant.GRASS, Plant.GRASS);
 
-        assertEquals(
-            expected,
-            new KindergartenGarden(plants).getPlantsOfStudent(student)
-        );
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.GRASS, Plant.GRASS, Plant.GRASS, Plant.GRASS);
     }
 
-    @Ignore("Remove to run test")
     @Test
-    public void fullGardenFirstStudent() {
+    public void fullGardenForAlice() {
+        String garden = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
         String student = "Alice";
-        String plants = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
-        List<Plant> expected = Arrays.asList(Plant.VIOLETS, Plant.RADISHES, Plant.VIOLETS, Plant.RADISHES);
 
-        assertEquals(
-            expected,
-            new KindergartenGarden(plants).getPlantsOfStudent(student)
-        );
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.VIOLETS, Plant.RADISHES, Plant.VIOLETS, Plant.RADISHES);
     }
 
-    @Ignore("Remove to run test")
     @Test
-    public void fullGardenSecondStudent() {
+    public void fullGardenForBob() {
+        String garden = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
         String student = "Bob";
-        String plants = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
-        List<Plant> expected = Arrays.asList(Plant.CLOVER, Plant.GRASS, Plant.CLOVER, Plant.CLOVER);
 
-        assertEquals(
-            expected,
-            new KindergartenGarden(plants).getPlantsOfStudent(student)
-        );
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.CLOVER, Plant.GRASS, Plant.CLOVER, Plant.CLOVER);
     }
 
-    @Ignore("Remove to run test")
     @Test
-    public void fullGardenSecondToLastStudent() {
+    public void fullGardenForCharlie() {
+        String garden = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
+        String student = "Charlie";
+
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.VIOLETS, Plant.VIOLETS, Plant.CLOVER, Plant.GRASS);
+    }
+
+    @Test
+    public void fullGardenForDavid() {
+        String garden = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
+        String student = "David";
+
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.RADISHES, Plant.VIOLETS, Plant.CLOVER, Plant.RADISHES);
+    }
+
+    @Test
+    public void fullGardenForEve() {
+        String garden = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
+        String student = "Eve";
+
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.CLOVER, Plant.GRASS, Plant.RADISHES, Plant.GRASS);
+    }
+
+    @Test
+    public void fullGardenForFred() {
+        String garden = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
+        String student = "Fred";
+
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.GRASS, Plant.CLOVER, Plant.VIOLETS, Plant.CLOVER);
+    }
+
+    @Test
+    public void fullGardenForGinny() {
+        String garden = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
+        String student = "Ginny";
+
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.CLOVER, Plant.GRASS, Plant.GRASS, Plant.CLOVER);
+    }
+
+    @Test
+    public void fullGardenForHarriet() {
+        String garden = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
+        String student = "Harriet";
+
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.VIOLETS, Plant.RADISHES, Plant.RADISHES, Plant.VIOLETS);
+    }
+
+    @Test
+    public void fullGardenForIleana() {
+        String garden = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
+        String student = "Ileana";
+
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.GRASS, Plant.CLOVER, Plant.VIOLETS, Plant.CLOVER);
+    }
+
+    @Test
+    public void fullGardenForJoseph() {
+        String garden = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
+        String student = "Joseph";
+
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.VIOLETS, Plant.CLOVER, Plant.VIOLETS, Plant.GRASS);
+    }
+
+    @Test
+    public void fullGardenForKincaid() {
+        String garden = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
         String student = "Kincaid";
-        String plants = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
-        List<Plant> expected = Arrays.asList(Plant.GRASS, Plant.CLOVER, Plant.CLOVER, Plant.GRASS);
 
-        assertEquals(
-            expected,
-            new KindergartenGarden(plants).getPlantsOfStudent(student)
-        );
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.GRASS, Plant.CLOVER, Plant.CLOVER, Plant.GRASS);
     }
 
-    @Ignore("Remove to run test")
     @Test
-    public void fullGardenLastStudent() {
+    public void fullGardenForLarry() {
+        String garden = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
         String student = "Larry";
-        String plants = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV";
-        List<Plant> expected = Arrays.asList(Plant.GRASS, Plant.VIOLETS, Plant.CLOVER, Plant.VIOLETS);
 
-        assertEquals(
-            expected,
-            new KindergartenGarden(plants).getPlantsOfStudent(student)
-        );
+        assertThat(new KindergartenGarden(garden).getPlantsOfStudent(student))
+                .containsExactly(Plant.GRASS, Plant.VIOLETS, Plant.CLOVER, Plant.VIOLETS);
     }
 
 }
