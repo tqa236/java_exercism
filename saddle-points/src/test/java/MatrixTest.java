@@ -1,9 +1,13 @@
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MatrixTest {
 
@@ -17,20 +21,18 @@ public class MatrixTest {
 
         Set<MatrixCoordinate> expectedSaddlePoints = Collections.singleton(new MatrixCoordinate(2, 1));
 
-        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertThat(matrix.getSaddlePoints()).isEqualTo(expectedSaddlePoints);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCanIdentifyThatEmptyMatrixHasNoSaddlePoints() {
         Matrix matrix = new Matrix(new ArrayList<>());
 
         Set<MatrixCoordinate> expectedSaddlePoints = Collections.emptySet();
 
-        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertThat(matrix.getSaddlePoints()).isEqualTo(expectedSaddlePoints);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCanIdentifyLackOfSaddlePointsWhenThereAreNone() {
         Matrix matrix = new Matrix(Arrays.asList(
@@ -41,10 +43,9 @@ public class MatrixTest {
 
         Set<MatrixCoordinate> expectedSaddlePoints = Collections.emptySet();
 
-        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertThat(matrix.getSaddlePoints()).isEqualTo(expectedSaddlePoints);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCanIdentifyMultipleSaddlePointsInAColumn() {
         Matrix matrix = new Matrix(Arrays.asList(
@@ -59,10 +60,9 @@ public class MatrixTest {
             new MatrixCoordinate(3, 2)
         ));
 
-        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertThat(matrix.getSaddlePoints()).isEqualTo(expectedSaddlePoints);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCanIdentifyMultipleSaddlePointsInARow() {
         Matrix matrix = new Matrix(Arrays.asList(
@@ -77,10 +77,9 @@ public class MatrixTest {
                 new MatrixCoordinate(2, 3)
         ));
 
-        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertThat(matrix.getSaddlePoints()).isEqualTo(expectedSaddlePoints);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCanIdentifySaddlePointInBottomRightCorner() {
         Matrix matrix = new Matrix(Arrays.asList(
@@ -91,10 +90,9 @@ public class MatrixTest {
 
         Set<MatrixCoordinate> expectedSaddlePoints = Collections.singleton(new MatrixCoordinate(3, 3));
 
-        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertThat(matrix.getSaddlePoints()).isEqualTo(expectedSaddlePoints);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCanIdentifySaddlePointsInANonSquareMatrix() {
         Matrix matrix = new Matrix(Arrays.asList(
@@ -107,10 +105,9 @@ public class MatrixTest {
                 new MatrixCoordinate(1, 1)
         ));
 
-        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertThat(matrix.getSaddlePoints()).isEqualTo(expectedSaddlePoints);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCanIdentifyThatSaddlePointsInASingleColumnMatrixAreThoseWithMinimumValue() {
         Matrix matrix = new Matrix(Arrays.asList(
@@ -125,10 +122,9 @@ public class MatrixTest {
                 new MatrixCoordinate(4, 1)
         ));
 
-        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertThat(matrix.getSaddlePoints()).isEqualTo(expectedSaddlePoints);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCanIdentifyThatSaddlePointsInASingleRowMatrixAreThoseWithMaximumValue() {
         Matrix matrix = new Matrix(Arrays.asList(
@@ -140,7 +136,7 @@ public class MatrixTest {
                 new MatrixCoordinate(1, 4)
         ));
 
-        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertThat(matrix.getSaddlePoints()).isEqualTo(expectedSaddlePoints);
     }
 
 }
