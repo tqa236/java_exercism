@@ -1,3 +1,4 @@
+class Markdown {
 
     String parse(String markdown) {
         String[] lines = markdown.split("\n");
@@ -9,31 +10,29 @@
             String theLine = parseHeader(lines[i]);
 
             if (theLine == null) {
-              theLine = parseListItem(lines[i]);
+                theLine = parseListItem(lines[i]);
             }
 
-            if (theLine == null) 
-            {
+            if (theLine == null) {
                 theLine = parseParagraph(lines[i]);
             }
 
             if (theLine.matches("(<li>).*") && !theLine.matches("(<h).*") && !theLine.matches("(<p>).*") && !activeList) {
                 activeList = true;
-              result = result + "<ul>";
-                result = result + theLine;
+                result += "<ul>";
+                result += theLine;
             } 
-
             else if (!theLine.matches("(<li>).*") && activeList) {
                 activeList = false;
-                result = result + "</ul>";
-                result = result + theLine;
+                result += "</ul>";
+                result += theLine;
             } else {
-              result = result + theLine;
+                result += theLine;
             }
         }
 
         if (activeList) {
-            result = result + "</ul>";
+            result += "</ul>";
         }
 
         return result;
@@ -42,14 +41,17 @@
     private String parseHeader(String markdown) {
         int count = 0;
 
-        for (int i = 0; i < markdown.length() && markdown.charAt(i) == '#'; i++) 
-        {
+        for (int i = 0; i < markdown.length() && markdown.charAt(i) == '#'; i++) {
             count++;
         }
+        if (count > 6) { 
+            return "<p>" + markdown + "</p>"; 
+        }
+        if (count == 0) { 
+            return null; 
+        }
 
-        if (count == 0) { return null; }
-
-        return "<h" + Integer.toString(count) + ">" + markdown.substring(count + 1) + "</h" + Integer.toString(count)+ ">";
+        return "<h" + Integer.toString(count) + ">" + markdown.substring(count + 1).trim() + "</h" + Integer.toString(count) + ">";
     }
 
     private String parseListItem(String markdown) {
@@ -58,7 +60,6 @@
             String listItemString = parseSomeSymbols(skipAsterisk);
             return "<li>" + listItemString + "</li>";
         }
-
         return null;
     }
 
@@ -67,7 +68,6 @@
     }
 
     private String parseSomeSymbols(String markdown) {
-
         String lookingFor = "__(.+)__";
         String update = "<strong>$1</strong>";
         String workingOn = markdown.replaceAll(lookingFor, update);
@@ -76,4 +76,4 @@
         update = "<em>$1</em>";
         return workingOn.replaceAll(lookingFor, update);
     }
-} 
+}
