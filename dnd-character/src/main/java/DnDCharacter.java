@@ -1,48 +1,81 @@
-import java.util.stream.IntStream;
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.stream.Collectors;
 
-class DnDCharacter {
-    private int strength = ability();
-    private int dexterity = ability();
-    private int constitution = ability();
-    private int intelligence = ability();
-    private int wisdom = ability();
-    private int charisma = ability();
-    private int hitpoints = 10 + modifier(constitution);
+public class DnDCharacter {
+    private static final Random random = new Random();
 
+    private int strength;
+    private int dexterity;
+    private int constitution;
+    private int intelligence;
+    private int wisdom;
+    private int charisma;
+    private int hitpoints;
 
-    int ability() {
-        Random rand = new Random();
-        int[] random_ability = new int[4];
-        for (int i = 0; i < 4; i = i + 1){
-            random_ability[i] = 1 + rand.nextInt(6);
-        }
-        return IntStream.of(random_ability).sum() - IntStream.of(random_ability).min().orElse(0);
+    public DnDCharacter() {
+        this.strength = generateAbilityScore();
+        this.dexterity = generateAbilityScore();
+        this.constitution = generateAbilityScore();
+        this.intelligence = generateAbilityScore();
+        this.wisdom = generateAbilityScore();
+        this.charisma = generateAbilityScore();
+        this.hitpoints = 10 + modifier(constitution);
     }
 
-    int modifier(int input) {
-        return (int)Math.floor((input - 10)/2.0);
+    public int ability(List<Integer> diceRolls) {
+        List<Integer> mutableList = new ArrayList<>(diceRolls);
+
+        Collections.sort(mutableList, Collections.reverseOrder());
+
+        return mutableList.stream()
+                        .limit(3)
+                        .mapToInt(Integer::intValue)
+                        .sum();
     }
 
-    int getStrength(){
+
+
+    private int generateAbilityScore() {
+        List<Integer> diceRolls = rollDice();
+        return ability(diceRolls);
+    }
+
+    public List<Integer> rollDice() {
+        return random.ints(4, 1, 7).boxed().collect(Collectors.toList());
+    }
+
+    public int modifier(int score) {
+        return (int) Math.floor((score - 10) / 2.0);
+    }
+
+    public int getStrength() {
         return strength;
     }
-    int getDexterity(){
+
+    public int getDexterity() {
         return dexterity;
     }
-    int getConstitution(){
+
+    public int getConstitution() {
         return constitution;
     }
-    int getIntelligence(){
+
+    public int getIntelligence() {
         return intelligence;
     }
-    int getWisdom(){
+
+    public int getWisdom() {
         return wisdom;
     }
-    int getCharisma(){
+
+    public int getCharisma() {
         return charisma;
     }
-    int getHitpoints(){
+
+    public int getHitpoints() {
         return hitpoints;
     }
 }
