@@ -1,32 +1,60 @@
-class PhoneNumber {
-  private String number;
+public class PhoneNumber {
+    private final String number;
 
-  PhoneNumber(String number) {
-    this.number = isValid(number);
-  }
-
-  public String getNumber() {
-    return number;
-  }
-
-  private String isValid(String number) {
-    String illegalCharacters = number.replaceAll("[0-9 ()+\\-\\.]", "");
-    if (illegalCharacters.length() > 0) {
-      throw new IllegalArgumentException(
-          "Illegal character in phone number. Only digits, spaces, parentheses, hyphens or dots accepted.");
+    public PhoneNumber(String input) {
+        this.number = validateAndCleanNumber(input);
     }
-    number = number.replaceAll("[^0-9]", "");
-    if ((number.length() < 10) || (number.length() > 11)) {
-      throw new IllegalArgumentException("Number must be 10 or 11 digits");
-    } else if (number.charAt(number.length() - 10) < '2') {
-      throw new IllegalArgumentException(
-          "Illegal Area Or Exchange Code. Only 2-9 are valid digits");
-    } else if (number.charAt(number.length() - 7) < '2') {
-      throw new IllegalArgumentException(
-          "Illegal Area Or Exchange Code. Only 2-9 are valid digits");
-    } else if ((number.length() == 11) && (number.charAt(0) != '1')) {
-      throw new IllegalArgumentException("Can only have 11 digits if number starts with '1'");
+
+    public String getNumber() {
+        return number;
     }
-    return number.substring(number.length() - 10);
-  }
+
+    private String validateAndCleanNumber(String input) {
+        if (input == null || input.isEmpty()) {
+            throw new IllegalArgumentException("input cannot be null or empty");
+        }
+        if (input.startsWith("+")) {
+            input = input.substring(1);
+        }
+        String cleaned = input.replaceAll("[\\s().-]", "");
+
+        if (cleaned.matches(".*[a-zA-Z].*")) {
+            throw new IllegalArgumentException("letters not permitted");
+        }
+
+        if (cleaned.matches(".*[^0-9].*")) {
+            throw new IllegalArgumentException("punctuations not permitted");
+        }
+
+        if (cleaned.length() < 10) {
+            throw new IllegalArgumentException("must not be fewer than 10 digits");
+        }
+
+        if (cleaned.length() > 11) {
+            throw new IllegalArgumentException("must not be greater than 11 digits");
+        }
+
+        if (cleaned.length() == 11) {
+            if (cleaned.charAt(0) != '1') {
+                throw new IllegalArgumentException("11 digits must start with 1");
+            }
+            cleaned = cleaned.substring(1);
+        }
+
+        if (cleaned.charAt(0) == '0') {
+            throw new IllegalArgumentException("area code cannot start with zero");
+        }
+        if (cleaned.charAt(0) == '1') {
+            throw new IllegalArgumentException("area code cannot start with one");
+        }
+
+        if (cleaned.charAt(3) == '0') {
+            throw new IllegalArgumentException("exchange code cannot start with zero");
+        }
+        if (cleaned.charAt(3) == '1') {
+            throw new IllegalArgumentException("exchange code cannot start with one");
+        }
+
+        return cleaned;
+    }
 }
